@@ -1,6 +1,6 @@
-//package com.alinesno.infra.plat.scheduler.service;
+//package com.alinesno.infra.ops.scheduler.service;
 //
-//import com.alinesno.infra.plat.scheduler.entity.AccountSiteEntity;
+//import com.alinesno.infra.ops.scheduler.entity.AccountSiteEntity;
 //import com.alinesno.infra.common.facade.services.IBaseService;
 //
 ///**

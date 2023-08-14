@@ -1,8 +1,8 @@
-//package com.alinesno.infra.plat.scheduler.service.impl;
+//package com.alinesno.infra.ops.scheduler.service.impl;
 //
-//import com.alinesno.infra.plat.scheduler.entity.AccountSiteEntity;
-//import com.alinesno.infra.plat.scheduler.mapper.AccountSiteMapper;
-//import com.alinesno.infra.plat.scheduler.service.AccountSiteService;
+//import com.alinesno.infra.ops.scheduler.entity.AccountSiteEntity;
+//import com.alinesno.infra.ops.scheduler.mapper.AccountSiteMapper;
+//import com.alinesno.infra.ops.scheduler.service.AccountSiteService;
 //import com.alinesno.infra.common.core.service.impl.IBaseServiceImpl;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;

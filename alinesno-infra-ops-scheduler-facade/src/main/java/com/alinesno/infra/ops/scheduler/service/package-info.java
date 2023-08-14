@@ -1,1 +1,1 @@
-package com.alinesno.infra.plat.scheduler.service;
+package com.alinesno.infra.ops.scheduler.service;

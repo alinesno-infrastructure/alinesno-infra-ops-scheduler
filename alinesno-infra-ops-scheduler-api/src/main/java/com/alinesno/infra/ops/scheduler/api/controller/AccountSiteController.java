@@ -1,9 +1,9 @@
-//package com.alinesno.infra.plat.scheduler.api.controller;
+//package com.alinesno.infra.ops.scheduler.api.controller;
 //
-//import com.alinesno.infra.plat.scheduler.entity.AccountSiteEntity;
-//import com.alinesno.infra.plat.scheduler.service.AccountSiteService;
+//import com.alinesno.infra.ops.scheduler.entity.AccountSiteEntity;
+//import com.alinesno.infra.ops.scheduler.service.AccountSiteService;
 //import com.alinesno.infra.common.core.constants.SpringInstanceScope;
-//import com.alinesno.infra.common.core.rest.platController;
+//import com.alinesno.infra.common.core.rest.opsController;
 //import com.alinesno.infra.common.facade.pageable.DatatablesPageBean;
 //import com.alinesno.infra.common.facade.pageable.TableDataInfo;
 //import io.swagger.annotations.Api;

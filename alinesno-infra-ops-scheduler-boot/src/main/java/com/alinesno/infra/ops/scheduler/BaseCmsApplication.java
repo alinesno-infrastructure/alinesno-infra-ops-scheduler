@@ -1,4 +1,4 @@
-package com.alinesno.infra.plat.scheduler;
+package com.alinesno.infra.ops.scheduler;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

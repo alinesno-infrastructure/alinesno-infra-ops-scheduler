@@ -1,1 +1,1 @@
-package com.alinesno.infra.plat.scheduler.entity;
+package com.alinesno.infra.ops.scheduler.entity;
