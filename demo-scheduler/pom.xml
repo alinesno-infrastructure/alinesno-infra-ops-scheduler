@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.alinesno.infra.ops</groupId>
-    <artifactId>demo-logback</artifactId>
+    <artifactId>demo-scheduler</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <dependencies>
@@ -19,7 +19,7 @@
         <!-- config-agent_start -->
         <dependency>
             <groupId>com.alinesno.infra.ops</groupId>
-            <artifactId>alinesno-infra-ops-logback-agent</artifactId>
+            <artifactId>alinesno-infra-ops-scheduler-agent</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
