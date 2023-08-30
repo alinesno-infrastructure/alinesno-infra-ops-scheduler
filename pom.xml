@@ -23,6 +23,8 @@
     <modules>
         <!-- 应用服务 -->
         <module>alinesno-infra-ops-scheduler-facade</module>  <!-- 接口和引用 -->
+        <module>alinesno-infra-ops-scheduler-quartz</module>  <!-- 定时任务 -->
+        <module>alinesno-infra-ops-scheduler-executor</module>  <!-- 任务执行器 -->
         <module>alinesno-infra-ops-scheduler-domain</module>  <!-- 领域服务 -->
         <module>alinesno-infra-ops-scheduler-adapter</module> <!-- 适配层 -->
         <module>alinesno-infra-ops-scheduler-api</module>  <!-- 接口服务 -->

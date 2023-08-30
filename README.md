@@ -3,4 +3,5 @@
 
 ## 鸣谢
 
-- 基于[PowerJob](https://github.com/PowerJob/PowerJob)二次开发调整
+- 这里自动化工具使用[ansible](https://github.com/ansible/ansible)框架
+- CMD处理部分使用[flow.ci](flow.ci)处理源码
