@@ -21,14 +21,28 @@
 			<artifactId>alinesno-infra-ops-scheduler-domain</artifactId>
 			<version>${revision}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>com.alinesno.infra.ops</groupId>
 			<artifactId>alinesno-infra-ops-scheduler-adapter</artifactId>
 			<version>${revision}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>com.alinesno.infra.ops</groupId>
 			<artifactId>alinesno-infra-ops-scheduler-api</artifactId>
+			<version>${revision}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alinesno.infra.ops</groupId>
+			<artifactId>alinesno-infra-ops-scheduler-quartz</artifactId>
+			<version>${revision}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alinesno.infra.ops</groupId>
+			<artifactId>alinesno-infra-ops-scheduler-executor</artifactId>
 			<version>${revision}</version>
 		</dependency>
 

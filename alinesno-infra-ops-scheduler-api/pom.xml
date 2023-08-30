@@ -28,6 +28,12 @@
 			<version>${revision}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.alinesno.infra.ops</groupId>
+			<artifactId>alinesno-infra-ops-scheduler-quartz</artifactId>
+			<version>${revision}</version>
+		</dependency>
+
 	</dependencies>
 
 </project>
