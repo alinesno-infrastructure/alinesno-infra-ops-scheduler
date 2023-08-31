@@ -30,7 +30,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author LuoAnDong
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public class ObjectUtil {
 

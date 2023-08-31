@@ -2,12 +2,12 @@ package com.alinesno.infra.ops.scheduler.command.bean;
 
 /**
  * 执行脚本
- * 
- * @author LuoAnDong
- * @since 2022年8月27日 上午6:23:43
+ *
+ * @author luoxiaodong
+ * @version 1.0.0
  *
  */
-public class AnsibleScriptDto {
+public class AnsibleScriptDto extends ScriptDto {
 
 	private boolean colorized; // true
 	private String installation; // 'ansible'

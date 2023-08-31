@@ -23,7 +23,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 /**
- * @author LuoAnDong
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public class DateUtil {
 

@@ -2,8 +2,8 @@ package com.alinesno.infra.ops.scheduler.command.constants;
 
 /**
  * 常用变量
- * @author LuoAnDong
- * @since 2022年8月24日 下午3:59:16
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public interface ExecuteConst {
 	

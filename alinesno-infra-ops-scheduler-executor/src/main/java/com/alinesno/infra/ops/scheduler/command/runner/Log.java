@@ -17,7 +17,8 @@
 package com.alinesno.infra.ops.scheduler.command.runner;
 
 /**
- * @author LuoAnDong
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public final class Log {
 

@@ -22,8 +22,8 @@ import com.google.common.collect.Lists;
 
 /**
  * 运行ansible操作的引擎
- * @author LuoAnDong
- * @since 2022年8月27日 上午6:23:43
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public class RunningAnsibleScript {
 
@@ -46,7 +46,7 @@ public class RunningAnsibleScript {
 		
 		script.append(dto.getInstallation()) ; 
 		script.append(WHITE_TEXT) ;
-		script.append("-i " + dto.getInventory()) ; 
+		script.append("-i ").append(dto.getInventory());
 		script.append(WHITE_TEXT) ;
 		script.append(dto.getPlaybook()) ; 
 		
@@ -77,7 +77,7 @@ public class RunningAnsibleScript {
 		
 	}
 	
-	private class NullProcListener implements ProcListener {
+	private static class NullProcListener implements ProcListener {
 
 		private final Logger logProc = LoggerFactory.getLogger(NullProcListener.class);
 		private AnsibleScriptDto AnsibleScriptDto ; 
@@ -119,7 +119,7 @@ public class RunningAnsibleScript {
 		}
 	}
 
-	private class AnsibelLogListener implements LogListener {
+	private static class AnsibelLogListener implements LogListener {
 
 		private final Logger logProc = LoggerFactory.getLogger(AnsibelLogListener.class);
 		private boolean isFinish = false;

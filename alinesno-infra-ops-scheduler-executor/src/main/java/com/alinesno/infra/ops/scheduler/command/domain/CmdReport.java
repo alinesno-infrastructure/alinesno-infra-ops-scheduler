@@ -19,7 +19,8 @@ package com.alinesno.infra.ops.scheduler.command.domain;
 /**
  * For report cmd status and result
  *
- * @author LuoAnDong
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 @SuppressWarnings("serial")
 public class CmdReport extends Jsonable {

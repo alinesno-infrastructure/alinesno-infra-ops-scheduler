@@ -25,7 +25,8 @@ import com.google.common.collect.Sets;
  * Command object to communicate between c/s
  * <p>
  *
- * @author LuoAnDong
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 @SuppressWarnings("serial")
 public class Cmd extends CmdBase {

@@ -52,7 +52,8 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Sets;
 
 /**
- * @author LuoAnDong
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public final class CmdExecutor {
 	

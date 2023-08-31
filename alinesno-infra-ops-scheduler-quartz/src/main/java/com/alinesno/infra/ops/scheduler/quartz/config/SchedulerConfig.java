@@ -41,7 +41,6 @@ public class SchedulerConfig {
        factory.setDataSource(dataSource);
        factory.setApplicationContextSchedulerContextKey("applicationContext");
        factory.setTaskExecutor(schedulerThreadPool());
-       //factory.setQuartzProperties(quartzProperties());
        factory.setStartupDelay(0);// 延迟0s执行
        return factory;
     }

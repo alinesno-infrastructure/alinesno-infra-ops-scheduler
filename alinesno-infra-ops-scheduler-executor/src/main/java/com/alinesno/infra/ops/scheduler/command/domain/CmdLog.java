@@ -18,6 +18,8 @@ package com.alinesno.infra.ops.scheduler.command.domain;
 
 /**
  * @author yh@fir.im
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 @SuppressWarnings("serial")
 public class CmdLog extends Jsonable {

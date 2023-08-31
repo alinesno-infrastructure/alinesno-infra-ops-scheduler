@@ -20,7 +20,8 @@ package com.alinesno.infra.ops.scheduler.command.runner;
 import com.alinesno.infra.ops.scheduler.command.domain.CmdResult;
 
 /**
- * @author LuoAnDong
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public interface ProcListener {
 

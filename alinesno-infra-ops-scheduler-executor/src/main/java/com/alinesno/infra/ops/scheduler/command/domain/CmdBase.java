@@ -26,7 +26,8 @@ import java.util.Objects;
  * Only include basic properties of command
  * <p>
  *
- * @author LuoAnDong
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 @SuppressWarnings("serial")
 public abstract class CmdBase extends Webhookable {

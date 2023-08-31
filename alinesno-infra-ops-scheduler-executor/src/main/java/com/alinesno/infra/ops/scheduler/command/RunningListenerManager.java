@@ -8,8 +8,8 @@ import java.util.Map;
 
 /**
  * 文件读写管理器,用户监听任务是否完成读写
- * @author LuoAnDong
- * @since 2020年3月31日 上午8:35:20
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public class RunningListenerManager {
 
@@ -31,7 +31,6 @@ public class RunningListenerManager {
 	/**
 	 * 获取监听器
 	 * @param taskId
-	 * @param log
 	 */
 	public static LogListener getListener(String taskId) {
 		return map.get(taskId) ; 
@@ -40,7 +39,6 @@ public class RunningListenerManager {
 	/**
 	 * 删除监听器
 	 * @param taskId
-	 * @param log
 	 */
 	public static void removeListener(String taskId) {
 		map.remove(taskId) ; 

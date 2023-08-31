@@ -24,7 +24,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author LuoAnDong
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 @SuppressWarnings("serial")
 public class CmdResult extends Jsonable {

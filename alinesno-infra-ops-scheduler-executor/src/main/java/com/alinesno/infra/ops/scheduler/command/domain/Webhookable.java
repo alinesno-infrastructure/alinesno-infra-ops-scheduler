@@ -20,6 +20,8 @@ package com.alinesno.infra.ops.scheduler.command.domain;
  * The domain entity support webhook
  *
  * @author yang
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 @SuppressWarnings("serial")
 public abstract class Webhookable extends Jsonable {

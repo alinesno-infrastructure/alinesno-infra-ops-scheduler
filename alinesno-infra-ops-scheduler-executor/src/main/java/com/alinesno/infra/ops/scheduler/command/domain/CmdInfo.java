@@ -19,7 +19,8 @@ package com.alinesno.infra.ops.scheduler.command.domain;
 /**
  * Used for send cmd info
  *
- * @author LuoAnDong
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 @SuppressWarnings("serial")
 public class CmdInfo extends CmdBase {

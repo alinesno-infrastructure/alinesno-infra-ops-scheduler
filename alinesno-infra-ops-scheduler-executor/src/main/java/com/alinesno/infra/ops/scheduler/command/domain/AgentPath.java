@@ -22,6 +22,8 @@ import com.google.common.base.Strings;
  * Agent path in zookeeper
  *
  * @author gy@fir.im
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 @SuppressWarnings("serial")
 public class AgentPath extends Jsonable {

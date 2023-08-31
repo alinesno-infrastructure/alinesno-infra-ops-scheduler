@@ -27,6 +27,8 @@ import java.util.Map;
 
 /**
  * @author yang
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public class CollectionUtil {
 

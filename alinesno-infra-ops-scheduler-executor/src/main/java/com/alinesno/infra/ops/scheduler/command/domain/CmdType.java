@@ -19,7 +19,8 @@ package com.alinesno.infra.ops.scheduler.command.domain;
 import java.io.Serializable;
 
 /**
- * @author LuoAnDong
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public enum CmdType implements Serializable {
 

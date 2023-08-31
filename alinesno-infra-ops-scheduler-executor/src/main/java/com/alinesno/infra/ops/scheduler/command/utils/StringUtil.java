@@ -20,6 +20,8 @@ import com.google.common.base.Strings;
 
 /**
  * @author yang
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public class StringUtil {
 

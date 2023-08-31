@@ -65,7 +65,15 @@ job:
         parentStep: 'node-3'
 ```
 
+## 常见问题
+
+jdk17添加以下到vm
+```sh
+--add-opens java.base/java.lang=ALL-UNNAMED
+```
+
 ## 鸣谢
 
 - 这里自动化工具使用[ansible](https://github.com/ansible/ansible)框架
 - CMD处理部分使用[flow.ci](flow.ci)处理源码
+- 集成[kjyw](https://gitee.com/aqztcom/kjyw)脚本进行演示示例和内置脚本功能

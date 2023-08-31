@@ -29,9 +29,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * @author LuoAnDong
+ * @author luoxiaodong
+ * @version 1.0.0
  */
-@SuppressWarnings("serial")
 public abstract class Jsonable implements Serializable {
 
     private final static DateTimeFormatter DOMAIN_DATE_FORMAT = DateTimeFormatter
