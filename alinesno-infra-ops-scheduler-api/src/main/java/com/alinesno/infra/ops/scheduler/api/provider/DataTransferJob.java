@@ -10,7 +10,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 /**
- * 数据转换任务
+ * DataTransferJob是一个执行数据转换任务的Quartz作业。
+ * 该作业实现了Quartz的Job接口，并在execute方法中执行数据转换逻辑。
+ * 它使用SpringContext获取IDistSchedulerService实例来创建Cron定时任务。
  */
 @PersistJobDataAfterExecution
 @DisallowConcurrentExecution
@@ -20,20 +22,23 @@ public class DataTransferJob implements Job {
 
     @Override
     public void execute(JobExecutionContext context) {
+        // 从作业上下文获取作业数据映射
+        JobDataMap jobDataMap = context.getJobDetail().getJobDataMap();
 
-        JobDataMap jobDataMap = context.getJobDetail().getJobDataMap() ;
+        // 从作业数据映射中获取任务ID
+        Long jobId = jobDataMap.getLong("jobId");
+        log.debug("jobId = {}", jobId);
 
-        Long jobId = jobDataMap.getLong("jobId") ;
-        log.debug("jobId = {}" , jobId);
-
-        IDistSchedulerService distSchedulerService = SpringContext.getBean(IDistSchedulerService.class) ;
+        // 使用Spring上下文获取IDistSchedulerService实例
+        IDistSchedulerService distSchedulerService = SpringContext.getBean(IDistSchedulerService.class);
 
         try {
+            // 调用IDistSchedulerService的createCronJob方法创建Cron定时任务
             distSchedulerService.createCronJob(jobId);
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }
-
     }
+
 
 }

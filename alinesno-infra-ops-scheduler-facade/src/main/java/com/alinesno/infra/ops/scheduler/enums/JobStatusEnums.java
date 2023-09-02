@@ -1,7 +1,7 @@
 package com.alinesno.infra.ops.scheduler.enums;
 
 /**
- * 任务状态
+ * 任务状态枚举
  */
 public enum JobStatusEnums {
     /**
@@ -38,5 +38,14 @@ public enum JobStatusEnums {
 
     public String getLabel() {
         return label;
+    }
+
+    public static JobStatusEnums getEnumByStatus(String status) {
+        for (JobStatusEnums enumValue : JobStatusEnums.values()) {
+            if (enumValue.getStatus().equals(status)) {
+                return enumValue;
+            }
+        }
+        return null; // 如果没有匹配的枚举常量，则返回null或抛出异常，根据实际情况决定
     }
 }

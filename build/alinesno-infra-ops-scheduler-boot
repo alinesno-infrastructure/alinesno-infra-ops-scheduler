@@ -90,3 +90,65 @@
 2023-09-02T09:55:40.438+08:00  INFO 2106 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
 2023-09-02T09:55:40.438+08:00  INFO 2106 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
 2023-09-02T09:55:40.438+08:00  INFO 2106 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2023-09-02T18:19:08.755+08:00  INFO 7082 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Starting OpsSchedulerApplication using Java 17.0.1 with PID 7082 (/Users/luodong/GitRepository/alinesno-infra-ops-scheduler/alinesno-infra-ops-scheduler-boot/target/classes started by luodong in /Users/luodong/GitRepository/alinesno-infra-ops-scheduler)
+2023-09-02T18:19:08.756+08:00 DEBUG 7082 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Running with Spring Boot v3.1.2, Spring v6.0.11
+2023-09-02T18:19:08.758+08:00  INFO 7082 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : The following 5 profiles are active: "base", "security", "mybatis", "sa-token", "dev"
+2023-09-02T18:19:09.019+08:00  INFO 7082 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-09-02T18:19:09.019+08:00  INFO 7082 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-09-02T18:19:10.086+08:00  INFO 7082 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-09-02T18:19:10.089+08:00  INFO 7082 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-09-02T18:19:10.132+08:00  INFO 7082 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 0 Redis repository interfaces.
+2023-09-02T18:19:11.176+08:00  WARN 7082 --- [restartedMain] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2023-09-02T18:19:11.199+08:00  INFO 7082 --- [restartedMain] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
+2023-09-02T18:19:11.200+08:00  INFO 7082 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2180 ms
+2023-09-02T18:19:11.778+08:00  INFO 7082 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2023-09-02T18:19:11.790+08:00  INFO 7082 --- [restartedMain] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2023-09-02T18:19:11.790+08:00  INFO 7082 --- [restartedMain] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2023-09-02T18:19:11.799+08:00  INFO 7082 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-09-02T18:19:12.244+08:00  INFO 7082 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@364d46a
+2023-09-02T18:19:12.246+08:00  INFO 7082 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-09-02T18:19:12.255+08:00  INFO 7082 --- [restartedMain] o.s.s.quartz.LocalDataSourceJobStore     : Using db table-based data access locking (synchronization).
+2023-09-02T18:19:12.257+08:00  INFO 7082 --- [restartedMain] o.s.s.quartz.LocalDataSourceJobStore     : JobStoreCMT initialized.
+2023-09-02T18:19:12.258+08:00  INFO 7082 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'Cluster_Scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.springframework.scheduling.quartz.LocalTaskExecutorThreadPool' - with -1 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is not clustered.
+
+2023-09-02T18:19:12.259+08:00  INFO 7082 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'Cluster_Scheduler' initialized from an externally provided properties instance.
+2023-09-02T18:19:12.259+08:00  INFO 7082 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2023-09-02T18:19:12.261+08:00  INFO 7082 --- [restartedMain] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@17bdabcc
+2023-09-02T18:19:12.768+08:00  INFO 7082 --- [restartedMain] org.redisson.Version                     : Redisson 3.20.1
+2023-09-02T18:19:12.831+08:00  WARN 7082 --- [restartedMain] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2023-09-02T18:19:13.013+08:00  INFO 7082 --- [redisson-netty-2-4] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2023-09-02T18:19:13.117+08:00  INFO 7082 --- [redisson-netty-2-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2023-09-02T18:19:13.593+08:00  INFO 7082 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-09-02T18:19:13.598+08:00  INFO 7082 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-09-02T18:19:13.659+08:00  INFO 7082 --- [restartedMain] io.undertow                              : starting server: Undertow - 2.3.7.Final
+2023-09-02T18:19:13.668+08:00  INFO 7082 --- [restartedMain] org.xnio                                 : XNIO version 3.8.8.Final
+2023-09-02T18:19:13.677+08:00  INFO 7082 --- [restartedMain] org.xnio.nio                             : XNIO NIO Implementation Version 3.8.8.Final
+2023-09-02T18:19:13.705+08:00  INFO 7082 --- [restartedMain] org.jboss.threads                        : JBoss Threads version 3.5.0.Final
+2023-09-02T18:19:13.744+08:00  INFO 7082 --- [restartedMain] o.s.b.w.e.undertow.UndertowWebServer     : Undertow started on port(s) 30400 (http)
+2023-09-02T18:19:13.745+08:00  INFO 7082 --- [restartedMain] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2023-09-02T18:19:13.850+08:00  INFO 7082 --- [restartedMain] o.s.s.quartz.LocalDataSourceJobStore     : Freed 0 triggers from 'acquired' / 'blocked' state.
+2023-09-02T18:19:13.862+08:00  INFO 7082 --- [restartedMain] o.s.s.quartz.LocalDataSourceJobStore     : Recovering 0 jobs that were in-progress at the time of the last shut-down.
+2023-09-02T18:19:13.863+08:00  INFO 7082 --- [restartedMain] o.s.s.quartz.LocalDataSourceJobStore     : Recovery complete.
+2023-09-02T18:19:13.864+08:00  INFO 7082 --- [restartedMain] o.s.s.quartz.LocalDataSourceJobStore     : Removed 0 'complete' triggers.
+2023-09-02T18:19:13.865+08:00  INFO 7082 --- [restartedMain] o.s.s.quartz.LocalDataSourceJobStore     : Removed 0 stale fired job entries.
+2023-09-02T18:19:13.868+08:00  INFO 7082 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler Cluster_Scheduler_$_NON_CLUSTERED started.
+2023-09-02T18:19:13.885+08:00  INFO 7082 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Started OpsSchedulerApplication in 5.895 seconds (process running for 6.743)
+2023-09-02T18:19:23.232+08:00  INFO 7082 --- [XNIO-1 task-2] io.undertow.servlet                      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-02T18:19:23.233+08:00  INFO 7082 --- [XNIO-1 task-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-02T18:19:23.235+08:00  INFO 7082 --- [XNIO-1 task-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-09-02T18:19:23.371+08:00 DEBUG 7082 --- [XNIO-1 task-2] c.a.i.o.s.a.p.OpsScriptController        : script dto = {"taskType":"workflow","name":"脚本依赖信息","describe":"测试任务流程信息","settings":[{"key":"cron","value":"*/30 * * * * ?"}],"env":[{"key":"JAVA_HOME","value":"/ops/java"},{"key":"GIT_TOKEN","value":"xxxx"}],"workflow":[{"name":"初始化环境配置","id":"node_01","type":"start","plugin":{"name":"shell","contextScript":"#!/bin/bash\n\nfor ((i\u003d1; i\u003c\u003d1000; i++))\ndo\n    echo \"循环次数: $i\"\n    # 在这里添加你要执行的命令或操作\ndone\n"},"parentStep":"start"},{"name":"查询运行指标","id":"node_02","type":"node","plugin":{"name":"clickhouse","pluginAttributes":[{"key":"query_sql","value":"select count(1) from kfinfo"},{"key":"driver_class","value":"ru.yandex.clickhouse.ClickHouseDriver"},{"key":"url","value":"jdbc:clickhouse://localhost:8123/default"},{"key":"username","value":"default"},{"key":"password","value":""}]},"parentStep":"node_01"},{"name":"发送消息通知","id":"node_03","type":"node","plugin":{"name":"shell","contextScript":"echo \u0027send alert\u0027"},"parentStep":"node_02"}]}
+2023-09-02T18:20:27.168+08:00  INFO 7082 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler Cluster_Scheduler_$_NON_CLUSTERED paused.
+2023-09-02T18:20:27.170+08:00  INFO 7082 --- [SpringApplicationShutdownHook] io.undertow                              : stopping server: Undertow - 2.3.7.Final
+2023-09-02T18:20:27.172+08:00  INFO 7082 --- [SpringApplicationShutdownHook] io.undertow.servlet                      : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-09-02T18:20:27.201+08:00  INFO 7082 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler Cluster_Scheduler_$_NON_CLUSTERED shutting down.
+2023-09-02T18:20:27.201+08:00  INFO 7082 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler Cluster_Scheduler_$_NON_CLUSTERED paused.
+2023-09-02T18:20:27.202+08:00  INFO 7082 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler Cluster_Scheduler_$_NON_CLUSTERED shutdown complete.
+2023-09-02T18:20:27.202+08:00  INFO 7082 --- [SpringApplicationShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2023-09-02T18:20:27.203+08:00  INFO 7082 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-09-02T18:20:27.213+08:00  INFO 7082 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

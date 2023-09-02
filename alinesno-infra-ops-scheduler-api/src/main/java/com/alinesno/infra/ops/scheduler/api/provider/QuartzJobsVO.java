@@ -1,7 +1,8 @@
 package com.alinesno.infra.ops.scheduler.api.provider;
 
 /**
- * 表示Quartz作业的值对象，用于存储作业的相关信息。
+ * QuartzJobsVO是表示Quartz作业的值对象，用于存储作业的相关信息。
+ * 它包含作业的名称、组名、Cron表达式或触发器的键以及作业或触发器的状态。
  */
 public class QuartzJobsVO {
     private String jobDetailName; // JobDetail的名称

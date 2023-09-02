@@ -1,6 +1,6 @@
 package com.alinesno.infra.ops.scheduler;
 
-import cn.hutool.extra.ftp.Ftp;
+import com.alinesno.infra.ops.scheduler.enums.JobTypeEnums;
 import com.alinesno.infra.ops.scheduler.handle.*;
 
 import java.util.HashMap;
@@ -16,15 +16,15 @@ public class ScriptExecutorContext {
 
     static {
         // 将ShellPlugin注册到脚本容器中
-        mapPlugin.put("shell", new ShellPlugin());
-        mapPlugin.put("alert", new AlarmPlugin());
-        mapPlugin.put("ansible", new AnsiblePlugin());
-        mapPlugin.put("clickhouse", new ClickhousePlugin());
-        mapPlugin.put("config", new ConfigPlugin());
-        mapPlugin.put("ftp", new FtpPlugin());
-        mapPlugin.put("sftp", new SftpPlugin());
-        mapPlugin.put("groovy", new GroovyPlugin());
-        mapPlugin.put("mysql", new MySQLPlugin());
+        mapPlugin.put(JobTypeEnums.SHELL.getCode(), new ShellPlugin());
+        mapPlugin.put(JobTypeEnums.ALERT.getCode(), new AlarmPlugin());
+        mapPlugin.put(JobTypeEnums.ANSIBLE.getCode(), new AnsiblePlugin());
+        mapPlugin.put(JobTypeEnums.CLICKHOUSE.getCode(), new ClickhousePlugin());
+        mapPlugin.put(JobTypeEnums.CONFIG.getCode(), new ConfigPlugin());
+        mapPlugin.put(JobTypeEnums.FTP.getCode(), new FtpPlugin());
+        mapPlugin.put(JobTypeEnums.FTP.getCode(), new SftpPlugin());
+        mapPlugin.put(JobTypeEnums.GROOVY.getCode(), new GroovyPlugin());
+        mapPlugin.put(JobTypeEnums.MYSQL.getCode(), new MySQLPlugin());
     }
 
     /**
@@ -32,7 +32,7 @@ public class ScriptExecutorContext {
      * @param pluginName 脚本插件名称
      * @return 对应的脚本执行器
      */
-    public AbstractExecutor getRunnerPlugin(String pluginName) {
+    public static AbstractExecutor getRunnerPlugin(String pluginName) {
         return mapPlugin.get(pluginName);
     }
 }

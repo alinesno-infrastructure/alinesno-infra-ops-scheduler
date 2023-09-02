@@ -20,6 +20,7 @@ public class ShellPlugin extends AbstractExecutor {
 
     @Override
     protected void run(ExecutorScriptDto dto) {
+
         // 创建CmdExecutor对象，并设置ProcListener和LogListener
         CmdExecutor executor = new CmdExecutor(new NullProcListener(dto),
                 new AnsibelLogListener(dto),
@@ -28,6 +29,7 @@ public class ShellPlugin extends AbstractExecutor {
                 Lists.newArrayList("SHELL_RUNNER"),
                 null,
                 Lists.newArrayList(dto.getScriptContent()));
+
         // 运行脚本任务并获取执行结果
         CmdResult result = executor.run();
 
