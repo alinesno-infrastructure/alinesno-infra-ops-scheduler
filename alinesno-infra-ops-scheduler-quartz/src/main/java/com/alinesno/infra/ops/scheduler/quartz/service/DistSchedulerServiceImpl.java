@@ -1,8 +1,10 @@
 package com.alinesno.infra.ops.scheduler.quartz.service;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alinesno.infra.ops.scheduler.dto.ExecutorScriptDto;
 import com.alinesno.infra.ops.scheduler.dto.TaskInfoDto;
+import com.alinesno.infra.ops.scheduler.dto.ValueAttributeDto;
 import com.alinesno.infra.ops.scheduler.entity.JobEntity;
 import com.alinesno.infra.ops.scheduler.entity.TransEntity;
 import com.alinesno.infra.ops.scheduler.enums.JobStatusEnums;
@@ -14,6 +16,7 @@ import com.alinesno.infra.ops.scheduler.service.IExecutorScriptService;
 import com.alinesno.infra.ops.scheduler.service.IJobService;
 import com.alinesno.infra.ops.scheduler.service.ITransService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +29,9 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 分布式调度任务服务实现类
@@ -59,6 +64,7 @@ public class DistSchedulerServiceImpl implements IDistSchedulerService {
 
         // 使用Comparator接口创建一个比较器，按照order_step字段的值从小到大排序
         Comparator<TransEntity> comparator = Comparator.comparingInt(TransEntity::getOrderStep);
+        Map<String , Object> contextMap = new HashMap<>() ;
 
         // 使用Collections工具类的sort方法对列表进行排序
         listTrans.sort(comparator);
@@ -71,14 +77,31 @@ public class DistSchedulerServiceImpl implements IDistSchedulerService {
 
             log.debug("--->>>>>>>>>>> step = {} , trans = {}", step ++ , JSONObject.toJSONString(trans));
 
+//            if(JobStatusEnums.COMPLETED.getStatus().equals(trans.getStatus())){
+//               continue;
+//            }
+
             // 更新任务状态
             trans.setStatus(JobStatusEnums.PROCESSING.getStatus());
             transService.update(trans);
 
             try {
 
-                // TODO 处理定时任务
+                // 处理定时任务
+                ExecutorScriptDto executorScriptDto = new ExecutorScriptDto() ;
 
+                executorScriptDto.setScriptContent(trans.getContextScript());
+                executorScriptDto.setType(trans.getPluginName());
+
+                // 脚本不为空
+                if(StringUtils.isNotBlank(trans.getTransContext())){
+
+                    log.debug("--->>>>>> trans = {}" , trans.getTransContext());
+
+                    executorScriptDto.setAttributes(JSONArray.parseArray(trans.getTransContext() , ValueAttributeDto.class));
+                }
+
+                executorScriptService.run(executorScriptDto , contextMap); ;
 
                 // 更新任务状态
                 trans.setStatus(JobStatusEnums.COMPLETED.getStatus());
@@ -103,29 +126,25 @@ public class DistSchedulerServiceImpl implements IDistSchedulerService {
     @Override
     public void createCronJob(Long jobId) throws SQLException, IOException {
 
-        // TODO 运行测试脚本
-        ExecutorScriptDto dto = new ExecutorScriptDto() ;
-        executorScriptService.run(dto);
+        JobEntity jobEntity = jobService.getById(jobId);
+        TaskInfoDto taskInfoDto = JSONObject.parseObject(jobEntity.getJobContext(), TaskInfoDto.class);
 
-//        JobEntity jobEntity = jobService.getById(jobId);
-//        TaskInfoDto taskInfoDto = JSONObject.parseObject(jobEntity.getJobContext(), TaskInfoDto.class);
-//
-//        List<TransEntity> transList = transService.list(new LambdaQueryWrapper<TransEntity>().eq(TransEntity::getJobId, jobId));
-//
-//        // 使用Comparator接口创建一个比较器，按照order_step字段的值从小到大排序
-//        Comparator<TransEntity> comparator = Comparator.comparingInt(TransEntity::getOrderStep);
-//
-//        // 使用Collections工具类的sort方法对列表进行排序
-//        transList.sort(comparator);
-//
-//        StopWatch stopWatch = new StopWatch("func2");
-//        stopWatch.start("phase1");
-//        log.info("开始进行数据查询.");
-//
-//        this.createCronJob(taskInfoDto, jobEntity, transList);
-//
-//        stopWatch.stop();
-//        log.info("转换成流式查询时间:{}", SystemUtils.formatMilliseconds(stopWatch.getLastTaskTimeMillis()));
+        List<TransEntity> transList = transService.list(new LambdaQueryWrapper<TransEntity>().eq(TransEntity::getJobId, jobId));
+
+        // 使用Comparator接口创建一个比较器，按照order_step字段的值从小到大排序
+        Comparator<TransEntity> comparator = Comparator.comparingInt(TransEntity::getOrderStep);
+
+        // 使用Collections工具类的sort方法对列表进行排序
+        transList.sort(comparator);
+
+        StopWatch stopWatch = new StopWatch("func2");
+        stopWatch.start("phase1");
+        log.info("开始进行数据查询.");
+
+        this.createCronJob(taskInfoDto, jobEntity, transList);
+
+        stopWatch.stop();
+        log.info("转换成流式查询时间:{}", SystemUtils.formatMilliseconds(stopWatch.getLastTaskTimeMillis()));
 
     }
 

@@ -1,5 +1,7 @@
 package com.alinesno.infra.ops.scheduler.dto;
 
+import java.util.List;
+
 /**
  * ExecutorScriptDto是执行脚本的数据传输对象。
  * 它包含了执行脚本的类型和脚本内容。
@@ -8,6 +10,15 @@ public class ExecutorScriptDto {
 
     private String type; // 脚本类型
     private String scriptContent; // 脚本
+    private List<ValueAttributeDto>  attributes ; // 脚本信息
+
+    public List<ValueAttributeDto> getAttributes() {
+        return attributes;
+    }
+
+    public void setAttributes(List<ValueAttributeDto> attributes) {
+        this.attributes = attributes;
+    }
 
     /**
      * 默认构造函数
@@ -56,6 +67,7 @@ public class ExecutorScriptDto {
         return "ExecutorScriptDto{" +
                 "type='" + type + '\'' +
                 ", scriptContent='" + scriptContent + '\'' +
+                ", attributes=" + attributes +
                 '}';
     }
 }

@@ -1,7 +1,6 @@
 package com.alinesno.infra.ops.scheduler.handle;
 
 import com.alinesno.infra.ops.scheduler.AbstractExecutor;
-import com.alinesno.infra.ops.scheduler.command.bean.ScriptDto;
 import com.alinesno.infra.ops.scheduler.command.domain.CmdResult;
 import com.alinesno.infra.ops.scheduler.command.runner.CmdExecutor;
 import com.alinesno.infra.ops.scheduler.command.runner.Log;
@@ -12,6 +11,8 @@ import com.google.common.collect.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Map;
+
 /**
  * ShellPlugin类是一个Shell插件执行器，继承自AbstractExecutor抽象类。
  * 它用于执行Shell脚本任务。
@@ -19,7 +20,7 @@ import org.slf4j.LoggerFactory;
 public class ShellPlugin extends AbstractExecutor {
 
     @Override
-    protected void run(ExecutorScriptDto dto) {
+    protected void run(ExecutorScriptDto dto, Map<String, Object> contextMap) {
 
         // 创建CmdExecutor对象，并设置ProcListener和LogListener
         CmdExecutor executor = new CmdExecutor(new NullProcListener(dto),

@@ -59,6 +59,48 @@ public class TransEntity extends BaseJobEntity {
     @TableField("total_data_count")
     private Long totalDataCount ;
 
+    /**
+     * 父类步骤
+     */
+    @TableField("parent_step")
+    private String parentStep ;
+
+    /**
+     * 插件名称
+     */
+    @TableField("plugin_name")
+    private String pluginName ;
+
+    /**
+     * 脚本信息
+     */
+    @TableField("context_script")
+    private String contextScript ;
+
+    public String getPluginName() {
+        return pluginName;
+    }
+
+    public void setPluginName(String pluginName) {
+        this.pluginName = pluginName;
+    }
+
+    public String getContextScript() {
+        return contextScript;
+    }
+
+    public void setContextScript(String contextScript) {
+        this.contextScript = contextScript;
+    }
+
+    public String getParentStep() {
+        return parentStep;
+    }
+
+    public void setParentStep(String parentStep) {
+        this.parentStep = parentStep;
+    }
+
     public Long getProcessDataCount() {
         return processDataCount;
     }
