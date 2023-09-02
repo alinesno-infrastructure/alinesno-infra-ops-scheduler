@@ -1,87 +1,19 @@
-2023-08-31T20:58:34.906+08:00  INFO 2826 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Starting OpsSchedulerApplication using Java 17.0.1 with PID 2826 (/Users/luodong/GitRepository/alinesno-infra-ops-scheduler/alinesno-infra-ops-scheduler-boot/target/classes started by luodong in /Users/luodong/GitRepository/alinesno-infra-ops-scheduler)
-2023-08-31T20:58:34.907+08:00 DEBUG 2826 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Running with Spring Boot v3.1.2, Spring v6.0.11
-2023-08-31T20:58:34.909+08:00  INFO 2826 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : The following 5 profiles are active: "base", "security", "mybatis", "sa-token", "dev"
-2023-08-31T20:58:34.981+08:00  INFO 2826 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-08-31T20:58:34.985+08:00  INFO 2826 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-08-31T20:58:36.367+08:00  INFO 2826 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-08-31T20:58:36.373+08:00  INFO 2826 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2023-08-31T20:58:36.418+08:00  INFO 2826 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
-2023-08-31T20:58:36.545+08:00  WARN 2826 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.alinesno.infra.ops.scheduler.mapper]' package. Please check your configuration.
-2023-08-31T20:58:37.604+08:00  WARN 2826 --- [restartedMain] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
-2023-08-31T20:58:37.633+08:00  INFO 2826 --- [restartedMain] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
-2023-08-31T20:58:37.634+08:00  INFO 2826 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2646 ms
-2023-08-31T20:58:37.832+08:00  WARN 2826 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alarmEventSubscriber': Unsatisfied dependency expressed through field 'transService': No qualifying bean of type 'com.alinesno.infra.ops.scheduler.service.ITransService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
-2023-08-31T20:58:37.852+08:00  INFO 2826 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2023-08-31T20:58:37.894+08:00 ERROR 2826 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Field transService in com.alinesno.infra.ops.scheduler.event.AlarmEventSubscriber required a bean of type 'com.alinesno.infra.ops.scheduler.service.ITransService' that could not be found.
-
-The injection point has the following annotations:
-	- @org.springframework.beans.factory.annotation.Autowired(required=true)
-
-
-Action:
-
-Consider defining a bean of type 'com.alinesno.infra.ops.scheduler.service.ITransService' in your configuration.
-
-2023-08-31T21:01:32.633+08:00  INFO 2882 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Starting OpsSchedulerApplication using Java 17.0.1 with PID 2882 (/Users/luodong/GitRepository/alinesno-infra-ops-scheduler/alinesno-infra-ops-scheduler-boot/target/classes started by luodong in /Users/luodong/GitRepository/alinesno-infra-ops-scheduler)
-2023-08-31T21:01:32.635+08:00 DEBUG 2882 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Running with Spring Boot v3.1.2, Spring v6.0.11
-2023-08-31T21:01:32.636+08:00  INFO 2882 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : The following 5 profiles are active: "base", "security", "mybatis", "sa-token", "dev"
-2023-08-31T21:01:32.693+08:00  INFO 2882 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-08-31T21:01:32.693+08:00  INFO 2882 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-08-31T21:01:33.832+08:00  INFO 2882 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-08-31T21:01:33.835+08:00  INFO 2882 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2023-08-31T21:01:33.874+08:00  INFO 2882 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 0 Redis repository interfaces.
-2023-08-31T21:01:33.980+08:00  WARN 2882 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.alinesno.infra.ops.scheduler.mapper]' package. Please check your configuration.
-2023-08-31T21:01:34.921+08:00  WARN 2882 --- [restartedMain] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
-2023-08-31T21:01:34.944+08:00  INFO 2882 --- [restartedMain] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
-2023-08-31T21:01:34.944+08:00  INFO 2882 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2250 ms
-2023-08-31T21:01:35.103+08:00  WARN 2882 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alarmEventSubscriber': Unsatisfied dependency expressed through field 'transService': No qualifying bean of type 'com.alinesno.infra.ops.scheduler.service.ITransService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
-2023-08-31T21:01:35.120+08:00  INFO 2882 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2023-08-31T21:01:35.151+08:00 ERROR 2882 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Field transService in com.alinesno.infra.ops.scheduler.event.AlarmEventSubscriber required a bean of type 'com.alinesno.infra.ops.scheduler.service.ITransService' that could not be found.
-
-The injection point has the following annotations:
-	- @org.springframework.beans.factory.annotation.Autowired(required=true)
-
-
-Action:
-
-Consider defining a bean of type 'com.alinesno.infra.ops.scheduler.service.ITransService' in your configuration.
-
-2023-08-31T21:05:06.173+08:00  INFO 3023 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Starting OpsSchedulerApplication using Java 17.0.1 with PID 3023 (/Users/luodong/GitRepository/alinesno-infra-ops-scheduler/alinesno-infra-ops-scheduler-boot/target/classes started by luodong in /Users/luodong/GitRepository/alinesno-infra-ops-scheduler)
-2023-08-31T21:05:06.175+08:00 DEBUG 3023 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Running with Spring Boot v3.1.2, Spring v6.0.11
-2023-08-31T21:05:06.176+08:00  INFO 3023 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : The following 5 profiles are active: "base", "security", "mybatis", "sa-token", "dev"
-2023-08-31T21:05:06.228+08:00  INFO 3023 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-08-31T21:05:06.229+08:00  INFO 3023 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-08-31T21:05:07.370+08:00  INFO 3023 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-08-31T21:05:07.374+08:00  INFO 3023 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2023-08-31T21:05:07.413+08:00  INFO 3023 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 0 Redis repository interfaces.
-2023-08-31T21:05:08.504+08:00  WARN 3023 --- [restartedMain] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
-2023-08-31T21:05:08.529+08:00  INFO 3023 --- [restartedMain] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
-2023-08-31T21:05:08.530+08:00  INFO 3023 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2300 ms
-2023-08-31T21:05:09.246+08:00  INFO 3023 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
-2023-08-31T21:05:09.264+08:00  INFO 3023 --- [restartedMain] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
-2023-08-31T21:05:09.264+08:00  INFO 3023 --- [restartedMain] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
-2023-08-31T21:05:09.265+08:00  INFO 3023 --- [restartedMain] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
-2023-08-31T21:05:09.266+08:00  INFO 3023 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+2023-09-02T09:54:49.810+08:00  INFO 2091 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Starting OpsSchedulerApplication using Java 17.0.1 with PID 2091 (/Users/luodong/GitRepository/alinesno-infra-ops-scheduler/alinesno-infra-ops-scheduler-boot/target/classes started by luodong in /Users/luodong/GitRepository/alinesno-infra-ops-scheduler)
+2023-09-02T09:54:49.822+08:00 DEBUG 2091 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Running with Spring Boot v3.1.2, Spring v6.0.11
+2023-09-02T09:54:49.824+08:00  INFO 2091 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : The following 5 profiles are active: "base", "security", "mybatis", "sa-token", "dev"
+2023-09-02T09:54:49.882+08:00  INFO 2091 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-09-02T09:54:49.883+08:00  INFO 2091 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-09-02T09:54:51.113+08:00  INFO 2091 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-09-02T09:54:51.118+08:00  INFO 2091 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-09-02T09:54:51.162+08:00  INFO 2091 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2023-09-02T09:54:52.245+08:00  WARN 2091 --- [restartedMain] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2023-09-02T09:54:52.269+08:00  INFO 2091 --- [restartedMain] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
+2023-09-02T09:54:52.269+08:00  INFO 2091 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2385 ms
+2023-09-02T09:54:52.961+08:00  INFO 2091 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2023-09-02T09:54:52.975+08:00  INFO 2091 --- [restartedMain] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2023-09-02T09:54:52.976+08:00  INFO 2091 --- [restartedMain] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2023-09-02T09:54:52.977+08:00  INFO 2091 --- [restartedMain] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2023-09-02T09:54:52.978+08:00  INFO 2091 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
   Currently in standby mode.
@@ -89,26 +21,72 @@ Consider defining a bean of type 'com.alinesno.infra.ops.scheduler.service.ITran
   Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
   Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
-2023-08-31T21:05:09.266+08:00  INFO 3023 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
-2023-08-31T21:05:09.266+08:00  INFO 3023 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
-2023-08-31T21:05:09.266+08:00  INFO 3023 --- [restartedMain] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@52651ca3
-2023-08-31T21:05:09.778+08:00  INFO 3023 --- [restartedMain] org.redisson.Version                     : Redisson 3.20.1
-2023-08-31T21:05:09.839+08:00  WARN 3023 --- [restartedMain] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
-2023-08-31T21:05:10.092+08:00  INFO 3023 --- [redisson-netty-2-4] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-2023-08-31T21:05:10.223+08:00  INFO 3023 --- [redisson-netty-2-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 127.0.0.1/127.0.0.1:6379
-2023-08-31T21:05:10.748+08:00  INFO 3023 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-08-31T21:05:10.754+08:00  INFO 3023 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-08-31T21:05:10.823+08:00  INFO 3023 --- [restartedMain] io.undertow                              : starting server: Undertow - 2.3.7.Final
-2023-08-31T21:05:10.831+08:00  INFO 3023 --- [restartedMain] org.xnio                                 : XNIO version 3.8.8.Final
-2023-08-31T21:05:10.842+08:00  INFO 3023 --- [restartedMain] org.xnio.nio                             : XNIO NIO Implementation Version 3.8.8.Final
-2023-08-31T21:05:10.940+08:00  INFO 3023 --- [restartedMain] org.jboss.threads                        : JBoss Threads version 3.5.0.Final
-2023-08-31T21:05:10.988+08:00  INFO 3023 --- [restartedMain] o.s.b.w.e.undertow.UndertowWebServer     : Undertow started on port(s) 30400 (http)
-2023-08-31T21:05:10.990+08:00  INFO 3023 --- [restartedMain] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
-2023-08-31T21:05:10.991+08:00  INFO 3023 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
-2023-08-31T21:05:11.010+08:00  INFO 3023 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Started OpsSchedulerApplication in 5.586 seconds (process running for 6.43)
-2023-08-31T21:05:16.230+08:00  INFO 3023 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
-2023-08-31T21:05:16.232+08:00  INFO 3023 --- [SpringApplicationShutdownHook] io.undertow                              : stopping server: Undertow - 2.3.7.Final
-2023-08-31T21:05:16.275+08:00  INFO 3023 --- [SpringApplicationShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
-2023-08-31T21:05:16.284+08:00  INFO 3023 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
-2023-08-31T21:05:16.284+08:00  INFO 3023 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
-2023-08-31T21:05:16.284+08:00  INFO 3023 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2023-09-02T09:54:52.978+08:00  INFO 2091 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2023-09-02T09:54:52.978+08:00  INFO 2091 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2023-09-02T09:54:52.978+08:00  INFO 2091 --- [restartedMain] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@7cf6c57c
+2023-09-02T09:54:53.491+08:00  INFO 2091 --- [restartedMain] org.redisson.Version                     : Redisson 3.20.1
+2023-09-02T09:54:53.559+08:00  WARN 2091 --- [restartedMain] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2023-09-02T09:54:53.810+08:00  INFO 2091 --- [redisson-netty-2-5] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2023-09-02T09:54:53.936+08:00  INFO 2091 --- [redisson-netty-2-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2023-09-02T09:54:54.478+08:00  INFO 2091 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-09-02T09:54:54.485+08:00  INFO 2091 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-09-02T09:54:54.564+08:00  INFO 2091 --- [restartedMain] io.undertow                              : starting server: Undertow - 2.3.7.Final
+2023-09-02T09:54:54.573+08:00  INFO 2091 --- [restartedMain] org.xnio                                 : XNIO version 3.8.8.Final
+2023-09-02T09:54:54.583+08:00  INFO 2091 --- [restartedMain] org.xnio.nio                             : XNIO NIO Implementation Version 3.8.8.Final
+2023-09-02T09:54:54.670+08:00  INFO 2091 --- [restartedMain] org.jboss.threads                        : JBoss Threads version 3.5.0.Final
+2023-09-02T09:54:54.717+08:00  INFO 2091 --- [restartedMain] o.s.b.w.e.undertow.UndertowWebServer     : Undertow started on port(s) 30400 (http)
+2023-09-02T09:54:54.718+08:00  INFO 2091 --- [restartedMain] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2023-09-02T09:54:54.719+08:00  INFO 2091 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2023-09-02T09:54:54.740+08:00  INFO 2091 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Started OpsSchedulerApplication in 5.789 seconds (process running for 6.589)
+2023-09-02T09:55:29.330+08:00  INFO 2091 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2023-09-02T09:55:29.332+08:00  INFO 2091 --- [SpringApplicationShutdownHook] io.undertow                              : stopping server: Undertow - 2.3.7.Final
+2023-09-02T09:55:29.360+08:00  INFO 2091 --- [SpringApplicationShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2023-09-02T09:55:29.360+08:00  INFO 2091 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2023-09-02T09:55:29.360+08:00  INFO 2091 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2023-09-02T09:55:29.360+08:00  INFO 2091 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2023-09-02T09:55:32.129+08:00  INFO 2106 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Starting OpsSchedulerApplication using Java 17.0.1 with PID 2106 (/Users/luodong/GitRepository/alinesno-infra-ops-scheduler/alinesno-infra-ops-scheduler-boot/target/classes started by luodong in /Users/luodong/GitRepository/alinesno-infra-ops-scheduler)
+2023-09-02T09:55:32.131+08:00 DEBUG 2106 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Running with Spring Boot v3.1.2, Spring v6.0.11
+2023-09-02T09:55:32.132+08:00  INFO 2106 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : The following 5 profiles are active: "base", "security", "mybatis", "sa-token", "dev"
+2023-09-02T09:55:32.184+08:00  INFO 2106 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-09-02T09:55:32.184+08:00  INFO 2106 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-09-02T09:55:33.317+08:00  INFO 2106 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-09-02T09:55:33.327+08:00  INFO 2106 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-09-02T09:55:33.365+08:00  INFO 2106 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+2023-09-02T09:55:34.452+08:00  WARN 2106 --- [restartedMain] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2023-09-02T09:55:34.479+08:00  INFO 2106 --- [restartedMain] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
+2023-09-02T09:55:34.479+08:00  INFO 2106 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2294 ms
+2023-09-02T09:55:35.104+08:00  INFO 2106 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2023-09-02T09:55:35.117+08:00  INFO 2106 --- [restartedMain] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2023-09-02T09:55:35.118+08:00  INFO 2106 --- [restartedMain] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2023-09-02T09:55:35.119+08:00  INFO 2106 --- [restartedMain] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2023-09-02T09:55:35.120+08:00  INFO 2106 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2023-09-02T09:55:35.120+08:00  INFO 2106 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2023-09-02T09:55:35.120+08:00  INFO 2106 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2023-09-02T09:55:35.120+08:00  INFO 2106 --- [restartedMain] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@3929bb36
+2023-09-02T09:55:35.591+08:00  INFO 2106 --- [restartedMain] org.redisson.Version                     : Redisson 3.20.1
+2023-09-02T09:55:35.646+08:00  WARN 2106 --- [restartedMain] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2023-09-02T09:55:35.883+08:00  INFO 2106 --- [redisson-netty-2-5] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2023-09-02T09:55:35.999+08:00  INFO 2106 --- [redisson-netty-2-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2023-09-02T09:55:36.480+08:00  INFO 2106 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-09-02T09:55:36.486+08:00  INFO 2106 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-09-02T09:55:36.560+08:00  INFO 2106 --- [restartedMain] io.undertow                              : starting server: Undertow - 2.3.7.Final
+2023-09-02T09:55:36.568+08:00  INFO 2106 --- [restartedMain] org.xnio                                 : XNIO version 3.8.8.Final
+2023-09-02T09:55:36.577+08:00  INFO 2106 --- [restartedMain] org.xnio.nio                             : XNIO NIO Implementation Version 3.8.8.Final
+2023-09-02T09:55:36.668+08:00  INFO 2106 --- [restartedMain] org.jboss.threads                        : JBoss Threads version 3.5.0.Final
+2023-09-02T09:55:36.715+08:00  INFO 2106 --- [restartedMain] o.s.b.w.e.undertow.UndertowWebServer     : Undertow started on port(s) 30400 (http)
+2023-09-02T09:55:36.717+08:00  INFO 2106 --- [restartedMain] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2023-09-02T09:55:36.717+08:00  INFO 2106 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2023-09-02T09:55:36.737+08:00  INFO 2106 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Started OpsSchedulerApplication in 5.338 seconds (process running for 6.641)
+2023-09-02T09:55:40.409+08:00  INFO 2106 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2023-09-02T09:55:40.412+08:00  INFO 2106 --- [SpringApplicationShutdownHook] io.undertow                              : stopping server: Undertow - 2.3.7.Final
+2023-09-02T09:55:40.437+08:00  INFO 2106 --- [SpringApplicationShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2023-09-02T09:55:40.438+08:00  INFO 2106 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2023-09-02T09:55:40.438+08:00  INFO 2106 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2023-09-02T09:55:40.438+08:00  INFO 2106 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.

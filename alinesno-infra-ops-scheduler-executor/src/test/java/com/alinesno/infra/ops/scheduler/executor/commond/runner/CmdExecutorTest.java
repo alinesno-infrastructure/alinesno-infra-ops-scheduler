@@ -6,7 +6,6 @@ import com.alinesno.infra.ops.scheduler.command.runner.CmdExecutor;
 import com.alinesno.infra.ops.scheduler.command.runner.Log;
 import com.alinesno.infra.ops.scheduler.command.runner.LogListener;
 import com.alinesno.infra.ops.scheduler.command.runner.ProcListener;
-import com.alinesno.infra.ops.scheduler.exception.ExecutorServiceRuntimeException;
 import com.google.common.collect.Lists;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -30,13 +29,15 @@ public class CmdExecutorTest {
                 "    # 在这里添加你要执行的命令或操作\n" +
                 "done\n" ;
 
+        dto.setScriptContext(scriptStr);
+
         CmdExecutor executor = new CmdExecutor(new NullProcListener(dto),
                 new AnsibelLogListener(dto),
                 null,
                 null,
                 Lists.newArrayList("ANSIBLE_SHELL_RUNNER"),
                 null,
-                Lists.newArrayList(scriptStr));
+                Lists.newArrayList(dto.getScriptContext()));
         CmdResult result = executor.run();
 
         System.out.println("result = " + result);
