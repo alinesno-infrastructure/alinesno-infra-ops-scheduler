@@ -17,6 +17,7 @@ public class ScriptExecutorContext {
     static {
         // 将ShellPlugin注册到脚本容器中
         mapPlugin.put(JobTypeEnums.SHELL.getCode(), new ShellPlugin());
+        mapPlugin.put(JobTypeEnums.REMOTE_SHELL.getCode(), new RemoteShellPlugin());
         mapPlugin.put(JobTypeEnums.ALERT.getCode(), new AlarmPlugin());
         mapPlugin.put(JobTypeEnums.ANSIBLE.getCode(), new AnsiblePlugin());
         mapPlugin.put(JobTypeEnums.CLICKHOUSE.getCode(), new ClickhousePlugin());

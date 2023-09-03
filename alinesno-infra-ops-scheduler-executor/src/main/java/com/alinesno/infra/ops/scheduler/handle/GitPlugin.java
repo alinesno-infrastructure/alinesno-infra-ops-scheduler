@@ -70,7 +70,6 @@ public class GitPlugin extends AbstractExecutor {
     Git cloneRepository(String repositoryUrl, String localPath, CredentialsProvider credentialsProvider) throws GitAPIException {
 
         // TODO 待优化，后面判断并使用pull
-
         return Git.cloneRepository()
                 .setURI(repositoryUrl)
                 .setDirectory(new File(localPath))

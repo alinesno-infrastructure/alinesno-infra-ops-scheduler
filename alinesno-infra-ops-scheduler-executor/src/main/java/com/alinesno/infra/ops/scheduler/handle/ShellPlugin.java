@@ -1,10 +1,13 @@
 package com.alinesno.infra.ops.scheduler.handle;
 
 import com.alinesno.infra.ops.scheduler.AbstractExecutor;
+import com.alinesno.infra.ops.scheduler.command.domain.CmdResult;
+import com.alinesno.infra.ops.scheduler.command.runner.CmdExecutor;
+import com.alinesno.infra.ops.scheduler.command.runner.Log;
+import com.alinesno.infra.ops.scheduler.command.runner.LogListener;
+import com.alinesno.infra.ops.scheduler.command.runner.ProcListener;
 import com.alinesno.infra.ops.scheduler.dto.ExecutorScriptDto;
-import com.alinesno.infra.ops.scheduler.exception.ExecutorServiceRuntimeException;
-import com.alinesno.infra.ops.scheduler.utils.AttributeUtils;
-import com.alinesno.infra.ops.scheduler.utils.SftpClient;
+import com.google.common.collect.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,43 +19,102 @@ import java.util.Map;
  */
 public class ShellPlugin extends AbstractExecutor {
 
-    private static final Logger log = LoggerFactory.getLogger(ShellPlugin.class);
+    @Override
+    public void run(ExecutorScriptDto dto, Map<String, Object> contextMap) {
 
-    private static final String PROP_HOST = "host";
-    private static final String PROP_USERNAME = "username";
-    private static final String PROP_PASSWORD = "password";
+        // 创建CmdExecutor对象，并设置ProcListener和LogListener
+        CmdExecutor executor = new CmdExecutor(new NullProcListener(dto),
+                new AnsibelLogListener(dto),
+                null,
+                null,
+                Lists.newArrayList("SHELL_RUNNER"),
+                null,
+                Lists.newArrayList(dto.getScriptContent()));
+
+        // 运行脚本任务并获取执行结果
+        CmdResult result = executor.run();
+
+        System.out.println("result = " + result);
+    }
 
     /**
-     * 在此方法中实现SFTP相关任务的具体逻辑。
-     *
-     * @param executorScriptDto SFTP插件执行器的脚本DTO
-     * @param contextMap        上下文参数Map，用于传递执行所需的上下文信息
+     * NullProcListener类是一个空的ProcListener实现类。
+     * 它用于处理CmdExecutor执行过程中的回调事件。
      */
-    @Override
-    public void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
-        // 获取配置属性
-        Map<String , Object> attrs = AttributeUtils.convertAttributesToMap(executorScriptDto.getAttributes()) ;
+    private static class NullProcListener implements ProcListener {
 
-        String host = (String) attrs.get(PROP_HOST);
-        String username = (String) attrs.get(PROP_USERNAME);
-        String password = (String) attrs.get(PROP_PASSWORD);
+        private final Logger logProc = LoggerFactory.getLogger(NullProcListener.class);
+        private ExecutorScriptDto dto ;
 
-        // 执行 SFTP 相关任务的具体逻辑
-        try {
-            // 创建 SFTP 连接并进行操作
-            SftpClient sftpClient = new SftpClient(host, username, password);
-            sftpClient.connect();
+        public NullProcListener(ExecutorScriptDto dto) {
+            this.dto = dto ;
+        }
 
-            String command = executorScriptDto.getScriptContent() ;
-            String result = sftpClient.executeShellCommand(command) ;
+        @Override
+        public void onStarted(CmdResult result) {
+            System.out.println("---> onStarted ,  result = " + result.toJson());
+            logProc.info("开始运行安装脚本:{}", result.toJson());
+        }
 
-            log.debug("result = {}" , result);
+        @Override
+        public void onLogged(CmdResult result) {
+            System.out.println("---> onLogged ,  result = " + result.toJson());
+            logProc.info(result.toJson());
+        }
 
-            // 关闭 SFTP 连接
-            sftpClient.disconnect();
-        } catch (Exception e) {
-            log.error("SFTP任务执行失败: {}", e.toString());
-            throw new ExecutorServiceRuntimeException(e.getMessage()) ;
+        @Override
+        public void onExecuted(CmdResult result) {
+            System.out.println("---> onExecuted ,  result = " + result);
+            logProc.info("运行脚本中:{}", result.toJson());
+        }
+
+        @Override
+        public void onException(CmdResult result) {
+            System.out.println("---> onException ,  result = " + result);
+            logProc.error("运行脚本异常:{}", result);
+        }
+    }
+
+    /**
+     * AnsibelLogListener类是一个LogListener实现类。
+     * 它用于处理CmdExecutor执行过程中的日志输出事件。
+     */
+    private static class AnsibelLogListener implements LogListener {
+
+        private final Logger logProc = LoggerFactory.getLogger(AnsibelLogListener.class);
+        private boolean isFinish = false;
+        private String cmdLogContent = null;
+
+        public AnsibelLogListener(ExecutorScriptDto dto) {
+            logProc.debug("dto = {}" , dto);
+        }
+
+        @Override
+        public void onLog(Log log) {
+            cmdLogContent = log.getContent();
+
+            if (cmdLogContent.contains("command not found")) {
+                isFinish = false;
+                logProc.info("命令行未找到:" + cmdLogContent);
+            }
+
+            logProc.info(cmdLogContent);
+        }
+
+        @Override
+        public void onFinish() {
+            System.out.println("读写完成.");
+            logProc.info("脚本运行结束.");
+            isFinish = true;
+        }
+
+        public boolean isFinish() {
+            return isFinish;
+        }
+
+        @Override
+        public String cmdLogContent() {
+            return cmdLogContent;
         }
     }
 }

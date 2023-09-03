@@ -14,6 +14,7 @@ import com.alinesno.infra.ops.scheduler.utils.AttributeUtils;
 import com.google.common.collect.Lists;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
@@ -35,7 +36,7 @@ public class AnsiblePlugin extends AbstractExecutor {
     private static final String INVENTORY_PATH = "inventory" ;
 
     @Override
-    public void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
+    public void run(@NotNull ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
         // 获取配置属性
         Map<String , Object> attrs = AttributeUtils.convertAttributesToMap(executorScriptDto.getAttributes()) ;
         String inventory = (String) attrs.get(INVENTORY_PATH);

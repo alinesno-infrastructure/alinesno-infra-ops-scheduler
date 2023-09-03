@@ -39,7 +39,7 @@ public class DownloadPlugin extends AbstractExecutor {
             // 根据你的需求，可能需要使用参数和脚本内容来配置下载任务
 
             // 示例：下载文件的逻辑
-            String destinationPath = "/path/to/destination"; // 假设指定了文件的目标路径
+            String destinationPath = "/tmp/destination"; // 假设指定了文件的目标路径
 
             // 调用下载方法
             boolean downloadResult = downloadFile(fileUrl, destinationPath);

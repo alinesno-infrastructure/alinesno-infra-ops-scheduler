@@ -31,7 +31,7 @@ org:
       clusterCheckinInterval: 5000
       driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
       isClustered: true
-      misfireThreshold: 60000
+      misfireThreshold: 5000
       tablePrefix: QRTZ_
       txIsolationLevelReadCommitted: true
       useProperties: false

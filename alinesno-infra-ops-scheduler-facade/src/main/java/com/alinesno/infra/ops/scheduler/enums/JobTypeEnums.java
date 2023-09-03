@@ -6,8 +6,10 @@ package com.alinesno.infra.ops.scheduler.enums;
 public enum JobTypeEnums {
 
     SHELL("shell", "Shell脚本任务", "执行Shell脚本"),
+    REMOTE_SHELL("remote-shell", "Shell脚本远程执行", "执行Shell远程脚本"),
     ALERT("alert", "告警任务", "发送告警通知"),
     ANSIBLE("ansible", "Ansible任务", "执行Ansible脚本"),
+    DOWNLOAD("download", "下载任务", "执行Download任务"),
     CLICKHOUSE("clickhouse", "Clickhouse任务", "执行Clickhouse操作"),
     CONFIG("config", "配置任务", "执行配置相关操作"),
     FTP("ftp", "FTP任务", "执行FTP操作"),
