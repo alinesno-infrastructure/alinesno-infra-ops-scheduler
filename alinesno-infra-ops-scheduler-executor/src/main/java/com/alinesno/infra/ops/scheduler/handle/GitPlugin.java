@@ -107,7 +107,7 @@ public class GitPlugin extends AbstractExecutor {
         // 如果需要，处理推送结果
     }
 
-    private CredentialsProvider createCredentialsProvider(String username, String password, String token) {
+    public CredentialsProvider createCredentialsProvider(String username, String password, String token) {
         if (token != null && !token.isEmpty()) {
 //            return new OAuth2CredentialsProvider(token);
             return null ;

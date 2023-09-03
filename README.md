@@ -3,6 +3,20 @@
 
 ## 处理脚本
 
+集成一个简单的CICD流程配置，主要流程如下:
+
+```shell
+git clone https://github.com/alinesno-infrastructure/alinesno-infra-ops-scheduler.git
+mvn clean package install 
+sftp copy to server 
+docker run -p xxxx
+send result to webhook
+check headlth
+send dingtalk notices
+```
+
+集成下面的示例任务配置:
+ 
 ```json
 {
   "taskType":"workflow",

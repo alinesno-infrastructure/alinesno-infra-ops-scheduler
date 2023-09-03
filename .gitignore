@@ -41,6 +41,7 @@ hs_err_pid*
 .settings
 target
 .DS_Store
+test-data/*.csv
 /.metadata/
 
 # nodejs
@@ -50,3 +51,4 @@ node_modules
 
 /.vertx/
 
+/alinesno-infra-ops-scheduler-executor/src/test/resources/test-data/
