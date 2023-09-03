@@ -1,9 +1,16 @@
 package com.alinesno.infra.ops.scheduler.service.impl;
 
+import com.alinesno.infra.ops.scheduler.entity.ServerEntity;
 import com.alinesno.infra.ops.scheduler.service.IDMDBService;
-import com.jcraft.jsch.*;
+import com.alinesno.infra.ops.scheduler.service.IServerService;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -23,6 +30,9 @@ import java.util.List;
 public class CMDBServiceImpl implements IDMDBService {
 
     private static final Logger log = LoggerFactory.getLogger(CMDBServiceImpl.class);
+
+    @Autowired
+    private IServerService serverService ;
 
     /**
      * distributeServerKeys 方法用于分发服务器密钥。
@@ -79,6 +89,14 @@ public class CMDBServiceImpl implements IDMDBService {
                 session.disconnect();
             }
         }
+    }
+
+    @Override
+    public List<ServerEntity> queryServerByTag(String tag) {
+
+        LambdaQueryWrapper<ServerEntity> queryWrapper = new LambdaQueryWrapper<>() ;
+
+        return serverService.list(queryWrapper.eq(ServerEntity::getFieldProp , tag)) ;
     }
 
     /**

@@ -1,0 +1,21 @@
+package com.alinesno.infra.ops.scheduler.service.impl;
+
+import com.alinesno.infra.common.core.service.impl.IBaseServiceImpl;
+import com.alinesno.infra.ops.scheduler.entity.ServerEntity;
+import com.alinesno.infra.ops.scheduler.mapper.ServerMapper;
+import com.alinesno.infra.ops.scheduler.service.IServerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+/**
+ * 服务器Service业务层处理
+ *
+ * 作者：luoxiaodong
+ * 版本：1.0.0
+ */
+@Service
+public class ServerServiceImpl extends IBaseServiceImpl<ServerEntity, ServerMapper> implements IServerService {
+    // 日志记录
+    private static final Logger log = LoggerFactory.getLogger(ServerServiceImpl.class);
+}
