@@ -3,31 +3,26 @@ package com.alinesno.infra.ops.scheduler.utils;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpATTRS;
-import org.junit.jupiter.api.*;
+import com.jcraft.jsch.SftpException;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
-public class SftpClientTest {
-    // 测试用的主机名、用户名和密码
-    private static final String HOST = "hostname";
-    private static final String USERNAME = "username";
-    private static final String PASSWORD = "password";
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-    // 测试用的本地文件和远程文件路径
-    private static final String LOCAL_FILE_PATH = "path/to/local/file.txt";
-    private static final String REMOTE_FILE_PATH = "/path/to/remote/file.txt";
+public class SftpClientTest {
 
     // SftpClient 实例
     private SftpClient sftpClient;
-
-    @BeforeEach
-    public void setup() {
-        // 在每个测试方法运行之前创建 SftpClient 实例
-        sftpClient = new SftpClient(HOST, USERNAME, PASSWORD);
-    }
 
     @AfterEach
     public void cleanup() {
@@ -46,9 +41,14 @@ public class SftpClientTest {
         Assertions.assertTrue(sftpClient.getChannelSftp().isConnected());
     }
 
-    @Test
+    @ParameterizedTest
     @DisplayName("测试上传文件到 SFTP 服务器")
-    public void testUploadFile() throws Exception {
+    @CsvFileSource(files = "/Users/luodong/test-data/case/SftpClientTestsetUp.csv" , numLinesToSkip = 1)
+    public void testUploadFile(String host , String username , String password) throws Exception {
+
+        // 在每个测试方法运行之前创建 SftpClient 实例
+        sftpClient = new SftpClient(host, username, password);
+
         // 创建一个临时文件，并写入一些内容
         File tempFile = createTempFileWithContent("Hello, SFTP!");
 
@@ -56,16 +56,51 @@ public class SftpClientTest {
         sftpClient.connect();
 
         // 上传文件
+        String REMOTE_FILE_PATH = "/root/to/remote/file_2.txt";
+        sftpClient.mkdir(new File(REMOTE_FILE_PATH).getParent());
+
         sftpClient.uploadFile(tempFile.getAbsolutePath(), REMOTE_FILE_PATH);
 
         // 断言文件是否成功上传
         ChannelSftp channelSftp = sftpClient.getChannelSftp();
         SftpATTRS remoteFileAttrs = channelSftp.stat(REMOTE_FILE_PATH);
-        Assertions.assertNotNull(remoteFileAttrs);
+        assertNotNull(remoteFileAttrs);
         Assertions.assertEquals(tempFile.length(), remoteFileAttrs.getSize());
 
         // 清理临时文件
         tempFile.delete();
+    }
+
+    @ParameterizedTest
+    @DisplayName("测试执行Shell命令")
+    @CsvFileSource(files = "/Users/luodong/test-data/case/SftpClientTestsetUp.csv" , numLinesToSkip = 1)
+    public void testExecuteShellCommand(String host , String username , String password) throws JSchException, IOException, SftpException {
+        // 在每个测试方法运行之前创建 SftpClient 实例
+        sftpClient = new SftpClient(host, username, password);
+
+        // 连接到 SFTP 服务器
+        sftpClient.connect();
+
+        // 运行命令
+        String command = """
+                export PROJECT=dubbo
+                rm -rf dubbo \s
+                echo 'PROJECT = ${ PROJECT }'
+                git clone https://github.com/apache/dubbo.git \s
+                cd dubbo \s
+                /root/apache-maven-3.9.4/bin/mvn clean package\s
+                """;
+
+        command = """
+                #!/bin/bash
+                export PROJECT=dubbo
+                echo "_PROJECT = ${PROJECT} __ ".${PROJECT}
+                """;
+        String result = sftpClient.executeShellCommand(command) ;
+        System.out.println(result);
+
+        sftpClient.disconnect();
+        assertNotNull(result , "消息返回内容为空") ;
     }
 
     @Test

@@ -2,10 +2,14 @@ package com.alinesno.infra.ops.scheduler.handle;
 
 import com.alinesno.infra.ops.scheduler.AbstractExecutor;
 import com.alinesno.infra.ops.scheduler.dto.ExecutorScriptDto;
+import com.alinesno.infra.ops.scheduler.exception.ExecutorServiceRuntimeException;
+import com.alinesno.infra.ops.scheduler.utils.AttributeUtils;
 import com.alinesno.infra.ops.scheduler.utils.SftpClient;
+import com.jcraft.jsch.SftpException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.util.Map;
 
 /**
@@ -29,11 +33,15 @@ public class SftpPlugin extends AbstractExecutor {
      */
     @Override
     public void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
-        // 从上下文参数中获取所需的属性值
-        String host = (String) contextMap.get(PROP_HOST);
-        String username = (String) contextMap.get(PROP_USERNAME);
-        String password = (String) contextMap.get(PROP_PASSWORD);
-        String path = (String) contextMap.get(PROP_PATH);
+        // 获取配置属性
+        Map<String , Object> attrs = AttributeUtils.convertAttributesToMap(executorScriptDto.getAttributes()) ;
+
+        String host = (String) attrs.get(PROP_HOST);
+        String username = (String) attrs.get(PROP_USERNAME);
+        String password = (String) attrs.get(PROP_PASSWORD);
+        String path = (String) attrs.get(PROP_PATH);
+
+        String uploadFilePath = (String) contextMap.get("uploadFilePath");
 
         // 执行 SFTP 相关任务的具体逻辑
         try {
@@ -41,15 +49,29 @@ public class SftpPlugin extends AbstractExecutor {
             SftpClient sftpClient = new SftpClient(host, username, password);
             sftpClient.connect();
 
+            // 判断远程目录是否存在
+            try {
+                sftpClient.cd(path);
+                log.debug("Remote directory already exists: " + path);
+            } catch (SftpException e) {
+                // 远程目录不存在，创建目录
+                sftpClient.mkdir(path);
+                log.debug("Remote directory created: " + path);
+            }
+
             // 在指定路径下上传或下载文件
             // 例如，上传文件到远程服务器
-            String localFilePath = null ; //  executorScriptDto.getScriptPath();
-            sftpClient.uploadFile(null, path);
+            File uf = new File(uploadFilePath) ;
+            String uploadPath = path + File.separator + uf.getName() ;
+
+            log.debug("upload path = {}" , uploadPath);
+            sftpClient.uploadFile(uploadFilePath, uploadPath);
 
             // 关闭 SFTP 连接
             sftpClient.disconnect();
         } catch (Exception e) {
-            log.error("SFTP任务执行失败: {}", e.getMessage());
+            log.error("SFTP任务执行失败: {}", e.toString());
+            throw new ExecutorServiceRuntimeException(e.getMessage()) ;
         }
     }
 }
