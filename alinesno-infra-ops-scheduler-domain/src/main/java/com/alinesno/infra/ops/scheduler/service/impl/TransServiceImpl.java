@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * 转换Service业务层处理
  *
  * @version 1.0.0
- * @autor luoxiaodong
+ * @author luoxiaodong
  */
 @Service
 public class TransServiceImpl extends IBaseServiceImpl<TransEntity, TransMapper> implements ITransService {

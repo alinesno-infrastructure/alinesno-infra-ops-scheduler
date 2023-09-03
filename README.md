@@ -74,6 +74,7 @@ jdk17添加以下到vm
 
 ## 鸣谢
 
+- 设计思路参考:[蓝鲸运维]()，[阿里自动任务]()
 - 这里自动化工具使用[ansible](https://github.com/ansible/ansible)框架
 - CMD处理部分使用[flow.ci](flow.ci)处理源码
 - 集成[kjyw](https://gitee.com/aqztcom/kjyw)脚本进行演示示例和内置脚本功能
