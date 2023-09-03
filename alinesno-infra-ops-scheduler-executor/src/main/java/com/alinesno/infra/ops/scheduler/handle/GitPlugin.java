@@ -46,23 +46,13 @@ public class GitPlugin extends AbstractExecutor {
         String username = (String) attrs.get(PROP_USERNAME);
         String password = (String) attrs.get(PROP_PASSWORD);
         String token = (String) attrs.get(PROP_GITHUB_TOKEN);
+
         Git git = null;
 
         try {
             // 使用凭据克隆仓库
             CredentialsProvider credentialsProvider = createCredentialsProvider(username, password, token);
             git = cloneRepository(repositoryUrl, localPath, credentialsProvider);
-
-            // 创建分支
-            String branchName = "new_branch";
-            createBranch(git, branchName);
-
-            // 创建标签
-            String tagName = "v1.0";
-            createTags(git, tagName);
-
-            // 上传更改
-            uploadChanges(git, credentialsProvider);
 
             // 更新上下文Map，设置成功状态
             contextMap.put("gitStatus", "success");

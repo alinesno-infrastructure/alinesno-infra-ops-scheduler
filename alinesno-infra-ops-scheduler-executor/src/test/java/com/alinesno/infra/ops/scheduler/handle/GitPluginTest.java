@@ -30,7 +30,7 @@ public class GitPluginTest {
 
     @ParameterizedTest
     @DisplayName("测试 run 方法 - 从 CSV 文件读取测试数据")
-    @CsvFileSource(resources = "/test-data/testRunWithCsvData.csv")
+    @CsvFileSource(files = "/Users/luodong/test-data/case/testRunWithCsvData.csv")
     public void testRunWithCsvData(String repositoryUrl, String localPath, String username, String password, String token) throws Exception {
         // 初始化 Mockito 注解
         MockitoAnnotations.openMocks(this);
@@ -50,32 +50,11 @@ public class GitPluginTest {
         Git git = gitPlugin.cloneRepository(repositoryUrl , localPath, credentialsProvider) ;
         assertNotNull(git , "创建下载错误......");
 
-//        // 设置 GitPlugin 的其他方法返回空
-//        doNothing().when(gitPlugin).createBranch(any(Git.class), anyString());
-//        doNothing().when(gitPlugin).createTags(any(Git.class), anyString());
-//        doNothing().when(gitPlugin).uploadChanges(any(Git.class), any(CredentialsProvider.class));
-//
-//        // 创建上下文 Map
-//        Map<String, Object> contextMap = new HashMap<>();
-//
-//        // 调用 run 方法
-//        gitPlugin.run(executorScriptDtoMock, contextMap);
-//
-//        // 验证克隆方法被调用一次
-//        verify(gitPlugin, times(1)).cloneRepository(repositoryUrl, localPath, any(CredentialsProvider.class));
-//
-//        // 验证其他方法被调用一次
-//        verify(gitPlugin, times(1)).createBranch(gitMock, "new_branch");
-//        verify(gitPlugin, times(1)).createTags(gitMock, "v1.0");
-//        verify(gitPlugin, times(1)).uploadChanges(gitMock, any(CredentialsProvider.class));
-//
-//        // 验证上下文 Map 中的状态和错误信息
-//        assertEquals("success", contextMap.get("gitStatus"));
-//        assertNull(contextMap.get("errorMessage"));
-//
-//        // 验证 gitMock 被关闭一次
-//        verify(gitMock, times(1)).close();
+        // 创建上下文 Map
+        Map<String, Object> contextMap = new HashMap<>();
 
+        // 调用 run 方法
+        gitPlugin.run(executorScriptDtoMock, contextMap);
     }
 
     private static Map<String, Object> getStringObjectMap(String repositoryUrl, String localPath, String username, String password, String token) {
