@@ -3,66 +3,81 @@
 
 ## 处理脚本
 
-```yaml
-job:
-  name: xxxx
-  settings:
-    cron: xxxxx
-  env:
-    JAVA_HOME: /ops/java
-    GIT_TOKEN: xxx
-  workflow:
-    - step:
-        name: '初始化项目配置'
-        id: node-3
-        type: node
-        plugin:
-          name: shell 
-          contextScript:
-        parentStep: 'start' 
-    - step:
-        name: '数据指标查询'
-        id: node-3
-        type: clickhouse 
-        plugin:
-          name: clickhouse
-          url: 
-          username:
-          password:
-        parentStep: 'node-3'
-    - step:
-        name: '条件判断'
-        id: node-3
-        type: condition 
-        plugin:
-          name: condition 
-          contextScript:
-        parentStep: 'node-3'
-    - step:
-        name: '运行Ansible脚本'
-        id: node-1
-        type: node
-        plugin:
-          name: ansible 
-          scriptContext:
-        parentStep: 'node-3'
-    - step:
-        name: '运行Groovy脚本'
-        id: node-2
-        type: node
-        plugin:
-          name: groovy 
-          scriptContext:
-        parentStep: 'node-3'
-    - step:
-        name: '运行通知'
-        id: node-2
-        type: alarm 
-        plugin:
-          name: dingtalk
-          webhook: 
-          secret:
-        parentStep: 'node-3'
+```json
+{
+  "taskType":"workflow",
+  "name":"脚本依赖信息",
+  "describe":"测试任务流程信息",
+  "settings":[
+    {
+      "key":"cron",
+      "value":"*/30 * * * * ?"
+    }
+  ],
+  "env":[
+    {
+      "key":"JAVA_HOME",
+      "value":"/ops/java"
+    },
+    {
+      "key":"GIT_TOKEN",
+      "value":"xxxx"
+    }
+  ],
+  "workflow":[
+    {
+      "name":"初始化环境配置",
+      "id":"node_01",
+      "type":"start",
+      "plugin":{
+        "name":"shell",
+        "contextScript":"#!/bin/bash\n\nfor ((i\u003d1; i\u003c\u003d1000; i++))\ndo\n    echo \"循环次数: $i\"\n    # 在这里添加你要执行的命令或操作\ndone\n"
+      },
+      "parentStep":"start"
+    },
+    {
+      "name":"查询运行指标",
+      "id":"node_02",
+      "type":"node",
+      "plugin":{
+        "name":"clickhouse",
+        "pluginAttributes":[
+          {
+            "key":"query_sql",
+            "value":"select count(1) from kfinfo"
+          },
+          {
+            "key":"driver_class",
+            "value":"ru.yandex.clickhouse.ClickHouseDriver"
+          },
+          {
+            "key":"url",
+            "value":"jdbc:clickhouse://localhost:8123/default"
+          },
+          {
+            "key":"username",
+            "value":"default"
+          },
+          {
+            "key":"password",
+            "value":""
+          }
+        ]
+      },
+      "parentStep":"node_01"
+    },
+    {
+      "name":"发送消息通知",
+      "id":"node_03",
+      "type":"node",
+      "plugin":{
+        "name":"shell",
+        "contextScript":"echo \u0027send alert\u0027"
+      },
+      "parentStep":"node_02"
+    }
+  ]
+}
 ```
 
 ## 常见问题

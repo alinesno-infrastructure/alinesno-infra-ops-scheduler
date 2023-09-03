@@ -1,7 +1,7 @@
 package com.alinesno.infra.ops.scheduler.service.impl;
 
 import com.alinesno.infra.ops.scheduler.entity.ServerEntity;
-import com.alinesno.infra.ops.scheduler.service.IDMDBService;
+import com.alinesno.infra.ops.scheduler.service.ICMDBService;
 import com.alinesno.infra.ops.scheduler.service.IServerService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.jcraft.jsch.ChannelSftp;
@@ -20,14 +20,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * CMDBServiceImpl 类是 IDMDBService 接口的实现类。
+ * CMDBServiceImpl 类是 ICMDBService 接口的实现类。
  * 该类用于分发服务器密钥。
  *
  * @author luoxiaodong
  * @version  1.0.0
  */
 @Service
-public class CMDBServiceImpl implements IDMDBService {
+public class CMDBServiceImpl implements ICMDBService {
 
     private static final Logger log = LoggerFactory.getLogger(CMDBServiceImpl.class);
 
@@ -93,9 +93,7 @@ public class CMDBServiceImpl implements IDMDBService {
 
     @Override
     public List<ServerEntity> queryServerByTag(String tag) {
-
         LambdaQueryWrapper<ServerEntity> queryWrapper = new LambdaQueryWrapper<>() ;
-
         return serverService.list(queryWrapper.eq(ServerEntity::getFieldProp , tag)) ;
     }
 

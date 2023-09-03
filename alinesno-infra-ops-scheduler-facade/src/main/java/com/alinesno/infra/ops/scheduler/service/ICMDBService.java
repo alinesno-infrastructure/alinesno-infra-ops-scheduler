@@ -11,7 +11,7 @@ import java.util.List;
  * @author  luoxiaodong
  * @version 1.0.0
  */
-public interface IDMDBService {
+public interface ICMDBService {
 
     /**
      * distributeServerKeys 方法用于批量分发 SSH 密钥到各个服务器，用于初始化服务器管理。
