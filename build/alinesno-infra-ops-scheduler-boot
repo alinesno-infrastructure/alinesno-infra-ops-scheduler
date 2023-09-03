@@ -5815,3 +5815,11 @@ done
 2023-09-03T02:16:22.338+08:00  INFO 2259 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler Cluster_Scheduler_$_NON_CLUSTERED started.
 2023-09-03T02:16:22.349+08:00  INFO 2259 --- [restartedMain] c.a.i.o.s.OpsSchedulerApplication        : Started OpsSchedulerApplication in 1.365 seconds (process running for 2237.857)
 2023-09-03T02:16:22.351+08:00  INFO 2259 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-09-03T02:17:02.699+08:00  INFO 2259 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler Cluster_Scheduler_$_NON_CLUSTERED paused.
+2023-09-03T02:17:02.700+08:00  INFO 2259 --- [SpringApplicationShutdownHook] io.undertow                              : stopping server: Undertow - 2.3.7.Final
+2023-09-03T02:17:02.708+08:00  INFO 2259 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler Cluster_Scheduler_$_NON_CLUSTERED shutting down.
+2023-09-03T02:17:02.708+08:00  INFO 2259 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler Cluster_Scheduler_$_NON_CLUSTERED paused.
+2023-09-03T02:17:02.708+08:00  INFO 2259 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler Cluster_Scheduler_$_NON_CLUSTERED shutdown complete.
+2023-09-03T02:17:02.708+08:00  INFO 2259 --- [SpringApplicationShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2023-09-03T02:17:02.708+08:00  INFO 2259 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2023-09-03T02:17:02.728+08:00  INFO 2259 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.

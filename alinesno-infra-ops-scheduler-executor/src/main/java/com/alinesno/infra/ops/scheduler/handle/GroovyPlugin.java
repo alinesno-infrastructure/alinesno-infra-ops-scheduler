@@ -2,6 +2,7 @@ package com.alinesno.infra.ops.scheduler.handle;
 
 import com.alinesno.infra.ops.scheduler.AbstractExecutor;
 import com.alinesno.infra.ops.scheduler.dto.ExecutorScriptDto;
+import com.alinesno.infra.ops.scheduler.utils.AttributeUtils;
 import groovy.lang.GroovyShell;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,18 +21,19 @@ public class GroovyPlugin extends AbstractExecutor {
     protected void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
         // 获取执行器的脚本内容
         String script = executorScriptDto.getScriptContent();
+        Map<String , Object> attr = AttributeUtils.convertAttributesToMap(executorScriptDto.getAttributes()) ;
 
         // 获取上下文中的参数
-        Object param1 = contextMap.get("param1");
-        Object param2 = contextMap.get("param2");
+        Object param1 = attr.get("param1");
+        Object param2 = attr.get("param2");
 
         // 执行Groovy脚本逻辑
         try {
             GroovyShell shell = new GroovyShell();
 
             // 设置脚本中可用的参数
-            shell.setVariable("param1", param1);
-            shell.setVariable("param2", param2);
+            shell.setVariable("a", Integer.parseInt(param1+""));
+            shell.setVariable("b", Integer.parseInt(param2+""));
 
             // 执行脚本
             Object result = shell.evaluate(script);
