@@ -22,6 +22,9 @@ package com.alinesno.infra.ops.scheduler.command.runner;
  */
 public final class Log {
 
+    public Log(String logMessage) {
+    }
+
     public enum Type {
         STDOUT,
         STDERR,

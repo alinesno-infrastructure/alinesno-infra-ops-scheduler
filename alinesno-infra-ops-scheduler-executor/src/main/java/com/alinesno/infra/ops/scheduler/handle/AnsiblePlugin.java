@@ -35,7 +35,7 @@ public class AnsiblePlugin extends AbstractExecutor {
     private static final String INVENTORY_PATH = "inventory" ;
 
     @Override
-    protected void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
+    public void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
         // 获取配置属性
         Map<String , Object> attrs = AttributeUtils.convertAttributesToMap(executorScriptDto.getAttributes()) ;
         String inventory = (String) attrs.get(INVENTORY_PATH);

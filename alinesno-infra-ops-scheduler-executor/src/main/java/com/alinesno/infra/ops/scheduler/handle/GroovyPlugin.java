@@ -18,7 +18,7 @@ public class GroovyPlugin extends AbstractExecutor {
     private static final Logger log = LoggerFactory.getLogger(GroovyPlugin.class);
 
     @Override
-    protected void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
+    public void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
         // 获取执行器的脚本内容
         String script = executorScriptDto.getScriptContent();
         Map<String , Object> attr = AttributeUtils.convertAttributesToMap(executorScriptDto.getAttributes()) ;

@@ -32,7 +32,7 @@ public class MySQLPlugin extends AbstractExecutor {
      * @param contextMap        上下文映射，用于存储执行结果
      */
     @Override
-    protected void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
+    public void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
 
         // 获取配置属性
         Map<String , Object> attrs = AttributeUtils.convertAttributesToMap(executorScriptDto.getAttributes()) ;

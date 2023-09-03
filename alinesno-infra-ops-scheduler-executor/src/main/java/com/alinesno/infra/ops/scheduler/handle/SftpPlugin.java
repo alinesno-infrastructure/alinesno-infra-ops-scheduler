@@ -28,7 +28,7 @@ public class SftpPlugin extends AbstractExecutor {
      * @param contextMap        上下文参数Map，用于传递执行所需的上下文信息
      */
     @Override
-    protected void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
+    public void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
         // 从上下文参数中获取所需的属性值
         String host = (String) contextMap.get(PROP_HOST);
         String username = (String) contextMap.get(PROP_USERNAME);

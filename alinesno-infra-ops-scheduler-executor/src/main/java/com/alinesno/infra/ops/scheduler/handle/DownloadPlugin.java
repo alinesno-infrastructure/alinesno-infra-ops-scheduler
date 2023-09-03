@@ -27,7 +27,7 @@ public class DownloadPlugin extends AbstractExecutor {
     private static final String PROP_FILE_URL = "file-url" ;
 
     @Override
-    protected void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
+    public void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
 
         Map<String , Object> attrs = AttributeUtils.convertAttributesToMap(executorScriptDto.getAttributes()) ;
         String fileUrl = (String) attrs.get(PROP_FILE_URL);
@@ -66,7 +66,7 @@ public class DownloadPlugin extends AbstractExecutor {
     }
 
     // 示例：下载文件的方法
-    private boolean downloadFile(String fileUrl, String destinationPath) throws Exception {
+    boolean downloadFile(String fileUrl, String destinationPath) throws Exception {
         // 这里是下载文件的具体实现逻辑
         // 可以使用第三方库或自定义代码来执行下载操作
 

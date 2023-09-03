@@ -57,8 +57,10 @@ import com.google.common.collect.Sets;
  */
 public final class CmdExecutor {
 	
-	private static final Logger log = LoggerFactory.getLogger(CmdExecutor.class) ; 
-	
+	private static final Logger log = LoggerFactory.getLogger(CmdExecutor.class) ;
+
+    public void setCommandArguments(List<String> strings) {
+    }
 
     /**
      * Class for null proc listener

@@ -30,7 +30,7 @@ public class AlarmPlugin extends AbstractExecutor {
     private static final String PROP_SECRET = "secret";
 
     @Override
-    protected void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
+    public void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
         // 获取配置属性
         Map<String , Object> attrs = AttributeUtils.convertAttributesToMap(executorScriptDto.getAttributes()) ;
         String type = (String) attrs.get(PROP_TYPE);
@@ -50,7 +50,7 @@ public class AlarmPlugin extends AbstractExecutor {
     }
 
     // 发送钉钉通知的方法
-    private void sendDingTalkNotification(String webhook, String secret, Map<String, Object> contextMap) {
+    public void sendDingTalkNotification(String webhook, String secret, Map<String, Object> contextMap) {
         // 构造通知内容
         String message = "这是一条钉钉通知";
 
@@ -81,7 +81,7 @@ public class AlarmPlugin extends AbstractExecutor {
     }
 
     // 发送微信通知的方法
-    private void sendWeChatNotification(String webhook, Map<String, Object> contextMap) {
+    public void sendWeChatNotification(String webhook, Map<String, Object> contextMap) {
         // 构造通知内容
         String message = "这是一条微信通知";
 
@@ -112,7 +112,7 @@ public class AlarmPlugin extends AbstractExecutor {
     }
 
     // 发送 HTTP 通知的方法
-    private void sendHttpNotification(String webhook, Map<String, Object> contextMap) {
+    public void sendHttpNotification(String webhook, Map<String, Object> contextMap) {
         // 构造通知内容
         String message = "这是一条 HTTP 通知";
 

@@ -20,7 +20,7 @@ import java.util.Map;
 public class ShellPlugin extends AbstractExecutor {
 
     @Override
-    protected void run(ExecutorScriptDto dto, Map<String, Object> contextMap) {
+    public void run(ExecutorScriptDto dto, Map<String, Object> contextMap) {
 
         // 创建CmdExecutor对象，并设置ProcListener和LogListener
         CmdExecutor executor = new CmdExecutor(new NullProcListener(dto),

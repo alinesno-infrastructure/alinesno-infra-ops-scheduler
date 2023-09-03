@@ -21,7 +21,7 @@ public class ConfigPlugin extends AbstractExecutor {
     private static final String PROP_CONFIG_URL = "config-url";
 
     @Override
-    protected void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
+    public void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
 
         // 获取配置URL
         Map<String , Object> attrs = AttributeUtils.convertAttributesToMap(executorScriptDto.getAttributes()) ;
@@ -43,7 +43,7 @@ public class ConfigPlugin extends AbstractExecutor {
     }
 
     // 读取配置内容的方法
-    private String readConfigContent(String configUrl) throws IOException {
+    String readConfigContent(String configUrl) throws IOException {
         // 这里是读取配置内容的具体实现逻辑
         // 使用 Apache Commons 的 IOUtils 类的 toString 方法来读取 URL 的内容
 

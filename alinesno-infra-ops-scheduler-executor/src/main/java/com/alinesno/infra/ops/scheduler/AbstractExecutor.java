@@ -1,5 +1,6 @@
 package com.alinesno.infra.ops.scheduler;
 
+import com.alinesno.infra.ops.scheduler.command.runner.CmdExecutor;
 import com.alinesno.infra.ops.scheduler.dto.ExecutorScriptDto;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -21,7 +22,7 @@ public abstract class AbstractExecutor {
      * @param executorScriptDto 执行器脚本数据传输对象
      * @param contextMap
      */
-    protected abstract void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap);
+    public abstract void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap);
 
     /**
      * 创建的 JdbcTemplate。
@@ -49,7 +50,7 @@ public abstract class AbstractExecutor {
      * @return 查询结果列表
      * @throws RuntimeException 如果执行查询失败
      */
-    protected List<Map<String, Object>> executeQuery(JdbcTemplate jdbcTemplate, String querySql) {
+    public List<Map<String, Object>> executeQuery(JdbcTemplate jdbcTemplate, String querySql) {
         try {
             return jdbcTemplate.queryForList(querySql);
         } catch (Exception e) {
@@ -57,4 +58,7 @@ public abstract class AbstractExecutor {
         }
     }
 
+    public void setCmdExecutor(CmdExecutor cmdExecutorMock) {
+
+    }
 }

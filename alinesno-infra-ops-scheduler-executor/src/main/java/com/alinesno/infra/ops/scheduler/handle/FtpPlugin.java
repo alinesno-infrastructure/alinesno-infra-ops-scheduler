@@ -33,7 +33,7 @@ public class FtpPlugin extends AbstractExecutor {
      * @param contextMap        上下文参数映射表，包含FTP连接所需的参数
      */
     @Override
-    protected void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
+    public void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
 
         Map<String , Object> attrs = AttributeUtils.convertAttributesToMap(executorScriptDto.getAttributes()) ;
 

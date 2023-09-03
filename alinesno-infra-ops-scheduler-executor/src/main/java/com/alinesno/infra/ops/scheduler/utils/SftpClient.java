@@ -9,6 +9,46 @@ public class SftpClient {
     private Session session;
     private ChannelSftp channelSftp;
 
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
+    public ChannelSftp getChannelSftp() {
+        return channelSftp;
+    }
+
+    public void setChannelSftp(ChannelSftp channelSftp) {
+        this.channelSftp = channelSftp;
+    }
+
     public SftpClient(String host, String username, String password) {
         this.host = host;
         this.username = username;
