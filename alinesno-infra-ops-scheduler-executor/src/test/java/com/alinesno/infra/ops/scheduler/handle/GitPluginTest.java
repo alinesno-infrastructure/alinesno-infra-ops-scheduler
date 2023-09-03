@@ -38,6 +38,8 @@ public class GitPluginTest {
         // 创建 GitPlugin 实例
         GitPlugin gitPlugin = new GitPlugin();
 
+        // 清理本地已经存在的git
+        FileUtils.forceDelete(new File(localPath));
         localPath += ("/" + UUID.randomUUID()) ;
         FileUtils.forceMkdir(new File(localPath));
 
@@ -60,11 +62,13 @@ public class GitPluginTest {
     private static Map<String, Object> getStringObjectMap(String repositoryUrl, String localPath, String username, String password, String token) {
         // 设置 executorScriptDtoMock 的属性
         Map<String, Object> attributes = new HashMap<>();
+
         attributes.put(GitPlugin.PROP_REPOSITORY_URL, repositoryUrl);
         attributes.put(GitPlugin.PROP_LOCAL_PATH, localPath);
         attributes.put(GitPlugin.PROP_USERNAME, username);
         attributes.put(GitPlugin.PROP_PASSWORD, password);
         attributes.put(GitPlugin.PROP_GITHUB_TOKEN, token);
+
         return attributes;
     }
 }

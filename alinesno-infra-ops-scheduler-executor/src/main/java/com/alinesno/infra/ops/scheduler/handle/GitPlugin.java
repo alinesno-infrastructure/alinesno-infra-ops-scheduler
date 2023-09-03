@@ -18,8 +18,8 @@ import java.util.Map;
  * GitPlugin 类是 AbstractExecutor 的子类，用于执行 Git 相关操作。
  * 该类实现了 run 方法，用于执行 Git 相关操作的逻辑。
  *
- * 作者：luoxiaodong
- * 版本：1.0.0
+ * @version  ：luoxiaodong
+ * @version  1.0.0
  */
 public class GitPlugin extends AbstractExecutor {
 
@@ -68,6 +68,9 @@ public class GitPlugin extends AbstractExecutor {
     }
 
     Git cloneRepository(String repositoryUrl, String localPath, CredentialsProvider credentialsProvider) throws GitAPIException {
+
+        // TODO 待优化，后面判断并使用pull
+
         return Git.cloneRepository()
                 .setURI(repositoryUrl)
                 .setDirectory(new File(localPath))

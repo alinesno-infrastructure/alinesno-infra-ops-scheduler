@@ -7,8 +7,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 /**
  * 服务器实体类
  *
- * 作者：luoxiaodong
- * 版本：1.0.0
+ * @author luoxiaodong
+ * @version  1.0.0
  */
 @TableName("server")
 public class ServerEntity extends InfraBaseEntity {

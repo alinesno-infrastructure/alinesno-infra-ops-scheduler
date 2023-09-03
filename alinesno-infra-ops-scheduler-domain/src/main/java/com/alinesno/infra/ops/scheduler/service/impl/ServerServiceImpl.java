@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 /**
  * 服务器Service业务层处理
  *
- * 作者：luoxiaodong
- * 版本：1.0.0
+ * @author luoxiaodong
+ * @version  1.0.0
  */
 @Service
 public class ServerServiceImpl extends IBaseServiceImpl<ServerEntity, ServerMapper> implements IServerService {

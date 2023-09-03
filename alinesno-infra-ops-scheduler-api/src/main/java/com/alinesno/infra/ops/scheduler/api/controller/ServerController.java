@@ -23,8 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
  * 处理与ServerEntity相关的请求的Controller。
  * 继承自BaseController类并实现IServerService接口。
  *
- * 作者：luoxiaodong
- * 版本：1.0.0
+ * @author luoxiaodong
+ * @version  1.0.0
  */
 @Api(tags = "Server")
 @RestController
