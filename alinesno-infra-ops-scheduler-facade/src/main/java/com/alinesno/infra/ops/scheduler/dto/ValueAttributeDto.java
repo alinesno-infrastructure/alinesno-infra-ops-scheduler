@@ -1,12 +1,13 @@
 package com.alinesno.infra.ops.scheduler.dto;
 
 /**
- * 环境变量
+ * ValueAttributeDto 类是环境变量的数据传输对象。
+ * 用于存储环境变量的键值对。
  */
 public class ValueAttributeDto {
 
-    private String key ;
-    private String value ;
+    private String key; // 环境变量的键
+    private String value; // 环境变量的值
 
     public ValueAttributeDto() {
     }

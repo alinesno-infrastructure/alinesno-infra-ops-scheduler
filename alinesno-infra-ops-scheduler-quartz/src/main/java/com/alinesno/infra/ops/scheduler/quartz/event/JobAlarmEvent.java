@@ -3,15 +3,29 @@ package com.alinesno.infra.ops.scheduler.quartz.event;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * TransEvent 事件
+ * JobAlarmEvent 类是任务告警事件类。
+ * 该类继承自 ApplicationEvent，用于表示任务告警事件。
+ *
+ * 作者：luoxiaodong
+ * 版本：1.0.0
  */
 public class JobAlarmEvent extends ApplicationEvent {
 
-    private Long totalCount ;
+    private Long totalCount;
     private Long transCount;
-    private Long transId ;
-    private String transName ;
-    private int step ;
+    private Long transId;
+    private String transName;
+    private int step;
+
+    /**
+     * 构造方法，创建一个任务告警事件对象。
+     *
+     * @param transId 任务ID
+     */
+    public JobAlarmEvent(Long transId) {
+        super(transId);
+        this.transId = transId;
+    }
 
     public String getTransName() {
         return transName;
@@ -27,11 +41,6 @@ public class JobAlarmEvent extends ApplicationEvent {
 
     public void setStep(int step) {
         this.step = step;
-    }
-
-    public JobAlarmEvent(Long transId) {
-        super(transId);
-        this.transId = transId ;
     }
 
     public Long getTransId() {
@@ -60,7 +69,7 @@ public class JobAlarmEvent extends ApplicationEvent {
 
     @Override
     public String toString() {
-        return "TransEvent{" +
+        return "JobAlarmEvent{" +
                 "totalCount=" + totalCount +
                 ", transCount=" + transCount +
                 ", transId=" + transId +
