@@ -12,6 +12,9 @@ import java.util.Map;
 /**
  * GroovyPlugin类是一个Groovy插件执行器，继承自AbstractExecutor抽象类。
  * 它用于执行Groovy相关任务。
+ *
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public class GroovyPlugin extends AbstractExecutor {
 

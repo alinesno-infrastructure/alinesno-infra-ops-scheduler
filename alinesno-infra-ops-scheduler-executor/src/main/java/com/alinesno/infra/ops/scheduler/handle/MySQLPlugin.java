@@ -14,16 +14,13 @@ import java.util.Map;
 /**
  * MySQLPlugin类是一个MySQL插件执行器，继承自AbstractExecutor抽象类。
  * 它用于执行MySQL相关任务。
+ *
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public class MySQLPlugin extends AbstractExecutor {
 
     private static final Logger log = LoggerFactory.getLogger(MySQLPlugin.class);
-
-    private static final String PROP_JDBC_URL = "jdbcUrl";
-    private static final String PROP_DRIVER_CLASS = "driverClass";
-    private static final String PROP_USERNAME = "username";
-    private static final String PROP_PASSWORD = "password";
-    private static final String PROP_QUERY_SQL = "querySql";
 
     /**
      * 执行MySQL相关任务的具体逻辑。
@@ -42,6 +39,9 @@ public class MySQLPlugin extends AbstractExecutor {
         String username = (String) attrs.get(PROP_USERNAME);
         String password = (String) attrs.get(PROP_PASSWORD);
         String querySql = (String) attrs.get(PROP_QUERY_SQL);
+
+        String serverId = (String) attrs.get(PROP_SERVER_ID);
+        findHostKey(serverId , jdbcUrl , username , password);
 
         // 创建 MySQL 的 JdbcTemplate
         JdbcTemplate jdbcTemplate = createJdbcTemplate(jdbcUrl, driverClass, username, password);

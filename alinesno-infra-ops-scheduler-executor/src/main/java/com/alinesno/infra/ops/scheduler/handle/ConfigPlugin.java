@@ -14,6 +14,9 @@ import java.util.Map;
 /**
  * ConfigPlugin 是一个配置插件执行器，继承自 AbstractExecutor 抽象类。
  * 它用于执行配置任务，读取指定 URL 的配置内容，并将其放入 contextMap 中。
+ *
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public class ConfigPlugin extends AbstractExecutor {
 

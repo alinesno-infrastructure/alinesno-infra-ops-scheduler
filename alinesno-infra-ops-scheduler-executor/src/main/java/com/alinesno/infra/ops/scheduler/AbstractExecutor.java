@@ -1,7 +1,11 @@
 package com.alinesno.infra.ops.scheduler;
 
+import com.alinesno.infra.common.core.context.SpringContext;
 import com.alinesno.infra.ops.scheduler.command.runner.CmdExecutor;
 import com.alinesno.infra.ops.scheduler.dto.ExecutorScriptDto;
+import com.alinesno.infra.ops.scheduler.entity.ServerKeyEntity;
+import com.alinesno.infra.ops.scheduler.service.IServerKeyService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -15,6 +19,16 @@ import java.util.Map;
  * @version 1.0.0
  */
 public abstract class AbstractExecutor {
+
+    public static final String PROP_SERVER_ID = "server-id";
+    public static final String PROP_HOST = "host";
+    public static final String PROP_USERNAME = "username";
+    public static final String PROP_PASSWORD = "password";
+
+    // JDBC
+    public static final String PROP_JDBC_URL = "jdbcUrl";
+    public static final String PROP_DRIVER_CLASS = "driverClass";
+    public static final String PROP_QUERY_SQL = "querySql";
 
     /**
      * 执行任务
@@ -55,6 +69,18 @@ public abstract class AbstractExecutor {
             return jdbcTemplate.queryForList(querySql);
         } catch (Exception e) {
             throw new RuntimeException("执行 MySQL 查询失败", e);
+        }
+    }
+
+    protected void findHostKey(String serverId, String host , String username , String password){
+
+        if(StringUtils.isEmpty(host) || StringUtils.isEmpty(username) || StringUtils.isEmpty(password)){
+            IServerKeyService serverKeyService = SpringContext.getBean(IServerKeyService.class) ;
+            ServerKeyEntity serverEntity = serverKeyService.getById(serverId) ;
+
+            host = serverEntity.getHostPath() ;
+            username = serverEntity.getUsername() ;
+            password = serverEntity.getPassword() ;
         }
     }
 

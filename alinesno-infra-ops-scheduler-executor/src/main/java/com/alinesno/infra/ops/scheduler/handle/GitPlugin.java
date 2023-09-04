@@ -18,8 +18,8 @@ import java.util.Map;
  * GitPlugin 类是 AbstractExecutor 的子类，用于执行 Git 相关操作。
  * 该类实现了 run 方法，用于执行 Git 相关操作的逻辑。
  *
- * @version  ：luoxiaodong
- * @version  1.0.0
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public class GitPlugin extends AbstractExecutor {
 
@@ -27,8 +27,6 @@ public class GitPlugin extends AbstractExecutor {
 
     protected static final String PROP_REPOSITORY_URL = "git-repository";
     protected static final String PROP_LOCAL_PATH= "local-path";
-    protected static final String PROP_USERNAME = "username";
-    protected static final String PROP_PASSWORD = "password";
     protected static final String PROP_GITHUB_TOKEN = "github-token";
 
     /**
@@ -46,6 +44,9 @@ public class GitPlugin extends AbstractExecutor {
         String username = (String) attrs.get(PROP_USERNAME);
         String password = (String) attrs.get(PROP_PASSWORD);
         String token = (String) attrs.get(PROP_GITHUB_TOKEN);
+
+        String serverId = (String) attrs.get(PROP_SERVER_ID);
+        findHostKey(serverId , repositoryUrl , username , password);
 
         Git git = null;
 

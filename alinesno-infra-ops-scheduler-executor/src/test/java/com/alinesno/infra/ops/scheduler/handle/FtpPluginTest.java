@@ -1,8 +1,11 @@
 package com.alinesno.infra.ops.scheduler.handle;
 
 import com.alinesno.infra.ops.scheduler.dto.ExecutorScriptDto;
+import com.alinesno.infra.ops.scheduler.utils.AttributeUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,19 +15,27 @@ import static com.alinesno.infra.ops.scheduler.handle.FtpPlugin.*;
 @DisplayName("FtpPlugin 单元测试")
 class FtpPluginTest {
 
-    @Test
+    @ParameterizedTest
     @DisplayName("测试 run 方法")
-    void run_ShouldUploadFileToFTP() {
+    @CsvFileSource(files = "/home/WUYING_luoandong_1788404793/Desktop/run_ShouldUploadFileToFTP.csv" , numLinesToSkip = 1)
+    void run_ShouldUploadFileToFTP(String host , String username , String password , String path , String remotePath) {
+
+        if(remotePath == null){
+            remotePath = "" ;
+        }
+
         // 准备
         Map<String, Object> contextMap = new HashMap<>();
-        contextMap.put(PROP_HOST, "ftp.example.com");
-        contextMap.put(PROP_USERNAME, "your_username");
-        contextMap.put(PROP_PASSWORD, "your_password");
-        contextMap.put(PROP_PATH, "/path/to/local/file.txt");
+        contextMap.put(PROP_HOST, host);
+        contextMap.put(PROP_USERNAME, username);
+        contextMap.put(PROP_PASSWORD, password);
+        contextMap.put(PROP_LOCAL_FILE, path);
+        contextMap.put(PROP_REMOTE_PATH, remotePath);
 
         FtpPlugin ftpPlugin = new FtpPlugin();
 
         ExecutorScriptDto dto = new ExecutorScriptDto();
+        dto.setAttributes(AttributeUtils.convertMapToAttributes(contextMap));
 
         // 执行
         ftpPlugin.run(dto, contextMap);

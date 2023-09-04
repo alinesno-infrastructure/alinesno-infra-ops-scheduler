@@ -19,6 +19,9 @@ import java.util.Map;
  * 该类是一个文件下载插件的执行器，用于执行文件下载任务。
  * 继承自抽象类 AbstractExecutor，并实现其中的 run 方法。
  * 在 run 方法中，执行下载逻辑，并将下载的文件地址放入 contextMap 中。
+ *
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public class DownloadPlugin extends AbstractExecutor {
 
@@ -55,12 +58,12 @@ public class DownloadPlugin extends AbstractExecutor {
                 // 可以输出日志或执行其他操作
             } else {
                 // 下载失败的处理逻辑
-                System.out.println("文件下载失败");
+                log.debug("文件下载失败");
                 // 可以输出日志或执行其他操作
             }
         } catch (Exception e) {
             // 处理异常情况
-            System.out.println("文件下载异常: " + e.getMessage());
+            log.debug("文件下载异常: " + e.getMessage());
             // 可以输出日志或执行其他操作
         }
     }

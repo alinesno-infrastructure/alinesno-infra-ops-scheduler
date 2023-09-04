@@ -20,6 +20,9 @@ import java.util.Map;
 /**
  * AlarmPlugin 类是一个告警插件执行器，继承自 AbstractExecutor 抽象类。
  * 它用于执行告警相关任务。
+ *
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public class AlarmPlugin extends AbstractExecutor {
 
@@ -36,6 +39,9 @@ public class AlarmPlugin extends AbstractExecutor {
         String type = (String) attrs.get(PROP_TYPE);
         String webhook = (String) attrs.get(PROP_WEBHOOK);
         String secret = (String) attrs.get(PROP_SECRET);
+
+        String serverId = (String) attrs.get(PROP_SERVER_ID);
+        findHostKey(serverId , webhook, null , secret);
 
         // 根据配置的通知渠道类型选择性发送通知
         if ("ding-talk".equals(type)) {

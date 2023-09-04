@@ -1,11 +1,17 @@
 package com.alinesno.infra.ops.scheduler.handle;
 
+import com.alinesno.infra.common.core.context.SpringContext;
 import com.alinesno.infra.ops.scheduler.AbstractExecutor;
 import com.alinesno.infra.ops.scheduler.dto.ExecutorScriptDto;
+import com.alinesno.infra.ops.scheduler.entity.ServerEntity;
+import com.alinesno.infra.ops.scheduler.entity.ServerKeyEntity;
 import com.alinesno.infra.ops.scheduler.exception.ExecutorServiceRuntimeException;
+import com.alinesno.infra.ops.scheduler.service.IServerKeyService;
+import com.alinesno.infra.ops.scheduler.service.IServerService;
 import com.alinesno.infra.ops.scheduler.utils.AttributeUtils;
 import com.alinesno.infra.ops.scheduler.utils.SftpClient;
 import com.jcraft.jsch.SftpException;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,6 +25,8 @@ import java.util.Map;
 public class SftpPlugin extends AbstractExecutor {
 
     private static final Logger log = LoggerFactory.getLogger(SftpPlugin.class);
+
+    private static final String PROP_SERVER_ID = "server-id";
 
     private static final String PROP_HOST = "host";
     private static final String PROP_USERNAME = "username";
@@ -36,10 +44,14 @@ public class SftpPlugin extends AbstractExecutor {
         // 获取配置属性
         Map<String , Object> attrs = AttributeUtils.convertAttributesToMap(executorScriptDto.getAttributes()) ;
 
+        String serverId = (String) attrs.get(PROP_SERVER_ID);
+
         String host = (String) attrs.get(PROP_HOST);
         String username = (String) attrs.get(PROP_USERNAME);
         String password = (String) attrs.get(PROP_PASSWORD);
         String path = (String) attrs.get(PROP_PATH);
+
+        findHostKey(serverId , host , username , password);
 
         String uploadFilePath = (String) contextMap.get("uploadFilePath");
 

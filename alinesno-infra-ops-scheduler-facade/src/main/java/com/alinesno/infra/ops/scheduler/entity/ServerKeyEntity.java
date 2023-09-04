@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
  */
 @TableName("server_key")
 public class ServerKeyEntity extends InfraBaseEntity {
+
     @TableField("server_id")
     private Long serverId;
 
@@ -16,7 +17,41 @@ public class ServerKeyEntity extends InfraBaseEntity {
     private String key;
 
     @TableField("type")
-    private String type ; // 密钥类型
+    private String type ; // 密钥类型(database/server/webhook/git/normal)
+
+    @TableField("host_path")
+    private String hostPath ;
+
+    @TableField("username")
+    private String username ;
+
+    @TableField("password")
+    private String password ;
+
+    public String getHostPath() {
+        return hostPath;
+    }
+
+    public void setHostPath(String hostPath) {
+        this.hostPath = hostPath;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 
     public String getType() {
         return type;

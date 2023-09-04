@@ -16,8 +16,13 @@ import java.util.Map;
 /**
  * ShellPlugin类是一个Shell插件执行器，继承自AbstractExecutor抽象类。
  * 它用于执行Shell脚本任务。
+ *
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public class ShellPlugin extends AbstractExecutor {
+
+    private static final Logger log = LoggerFactory.getLogger(ShellPlugin.class) ;
 
     @Override
     public void run(ExecutorScriptDto dto, Map<String, Object> contextMap) {
@@ -34,7 +39,7 @@ public class ShellPlugin extends AbstractExecutor {
         // 运行脚本任务并获取执行结果
         CmdResult result = executor.run();
 
-        System.out.println("result = " + result);
+        log.debug("result = " + result);
     }
 
     /**
@@ -52,25 +57,25 @@ public class ShellPlugin extends AbstractExecutor {
 
         @Override
         public void onStarted(CmdResult result) {
-            System.out.println("---> onStarted ,  result = " + result.toJson());
+            log.debug("---> onStarted ,  result = " + result.toJson());
             logProc.info("开始运行安装脚本:{}", result.toJson());
         }
 
         @Override
         public void onLogged(CmdResult result) {
-            System.out.println("---> onLogged ,  result = " + result.toJson());
+            log.debug("---> onLogged ,  result = " + result.toJson());
             logProc.info(result.toJson());
         }
 
         @Override
         public void onExecuted(CmdResult result) {
-            System.out.println("---> onExecuted ,  result = " + result);
+            log.debug("---> onExecuted ,  result = " + result);
             logProc.info("运行脚本中:{}", result.toJson());
         }
 
         @Override
         public void onException(CmdResult result) {
-            System.out.println("---> onException ,  result = " + result);
+            log.debug("---> onException ,  result = " + result);
             logProc.error("运行脚本异常:{}", result);
         }
     }
@@ -103,7 +108,7 @@ public class ShellPlugin extends AbstractExecutor {
 
         @Override
         public void onFinish() {
-            System.out.println("读写完成.");
+            log.debug("读写完成.");
             logProc.info("脚本运行结束.");
             isFinish = true;
         }

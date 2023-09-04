@@ -12,9 +12,9 @@ import com.alinesno.infra.ops.scheduler.dto.ExecutorScriptDto;
 import com.alinesno.infra.ops.scheduler.exception.ExecutorServiceRuntimeException;
 import com.alinesno.infra.ops.scheduler.utils.AttributeUtils;
 import com.google.common.collect.Lists;
+import jakarta.validation.constraints.NotNull;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
@@ -27,6 +27,9 @@ import java.util.Map;
 /**
  * AnsiblePlugin类是一个Ansible插件执行器，继承自AbstractExecutor抽象类。
  * 它用于执行Ansible相关任务。
+ *
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public class AnsiblePlugin extends AbstractExecutor {
 
@@ -104,13 +107,13 @@ public class AnsiblePlugin extends AbstractExecutor {
 
         @Override
         public void onStarted(CmdResult result) {
-            System.out.println("---> onStarted ,  result = " + result.toJson());
+            log.debug("---> onStarted ,  result = " + result.toJson());
             logPro.info("开始运行安装脚本:{}", result.toJson());
         }
 
         @Override
         public void onLogged(CmdResult result) {
-            System.out.println("---> onLogged ,  result = " + result.toJson());
+            log.debug("---> onLogged ,  result = " + result.toJson());
             logPro.info(result.toJson());
 
             AnsibleScriptDto.setRunLogger(result.toJson());
@@ -118,13 +121,13 @@ public class AnsiblePlugin extends AbstractExecutor {
 
         @Override
         public void onExecuted(CmdResult result) {
-            System.out.println("---> onExecuted ,  result = " + result.toJson());
+            log.debug("---> onExecuted ,  result = " + result.toJson());
             logPro.info("运行脚本中:{}", result.toJson());
         }
 
         @Override
         public void onException(CmdResult result) {
-            System.out.println("---> onException ,  result = " + result.toJson());
+            log.debug("---> onException ,  result = " + result.toJson());
             logPro.error("运行脚本异常:{}", result.toJson());
         }
     }
@@ -156,7 +159,7 @@ public class AnsiblePlugin extends AbstractExecutor {
 
         @Override
         public void onFinish() {
-            System.out.println("读写完成.");
+            log.debug("读写完成.");
             logPro.info("脚本运行结束.");
             isFinish = true;
         }

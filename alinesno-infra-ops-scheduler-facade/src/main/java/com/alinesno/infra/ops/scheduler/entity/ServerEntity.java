@@ -24,7 +24,6 @@ public class ServerEntity extends InfraBaseEntity {
     // IP地址
     @TableField("ip_address")
     private String ipAddress;
-
     // 操作系统
     @TableField("operating_system")
     private String operatingSystem;
@@ -48,6 +47,7 @@ public class ServerEntity extends InfraBaseEntity {
     // 分组ID
     @TableField("group_id")
     private Long groupId;
+
 
     /**
      * 获取ID

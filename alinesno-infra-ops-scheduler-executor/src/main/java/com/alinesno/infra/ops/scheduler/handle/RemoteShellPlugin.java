@@ -13,14 +13,13 @@ import java.util.Map;
 /**
  * ShellPlugin类是一个Shell插件执行器，继承自AbstractExecutor抽象类。
  * 它用于执行Shell脚本任务。
+ *
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public class RemoteShellPlugin extends AbstractExecutor {
 
     private static final Logger log = LoggerFactory.getLogger(RemoteShellPlugin.class);
-
-    private static final String PROP_HOST = "host";
-    private static final String PROP_USERNAME = "username";
-    private static final String PROP_PASSWORD = "password";
 
     /**
      * 在此方法中实现SFTP相关任务的具体逻辑。
@@ -33,9 +32,13 @@ public class RemoteShellPlugin extends AbstractExecutor {
         // 获取配置属性
         Map<String , Object> attrs = AttributeUtils.convertAttributesToMap(executorScriptDto.getAttributes()) ;
 
+        String serverId = (String) attrs.get(PROP_SERVER_ID);
+
         String host = (String) attrs.get(PROP_HOST);
         String username = (String) attrs.get(PROP_USERNAME);
         String password = (String) attrs.get(PROP_PASSWORD);
+
+        findHostKey(serverId , host , username , password);
 
         // 执行 SFTP 相关任务的具体逻辑
         try {
