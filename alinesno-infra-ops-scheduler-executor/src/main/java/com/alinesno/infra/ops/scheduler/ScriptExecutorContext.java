@@ -26,6 +26,7 @@ public class ScriptExecutorContext {
         mapPlugin.put(JobTypeEnums.FTP.getCode(), new SftpPlugin());
         mapPlugin.put(JobTypeEnums.GROOVY.getCode(), new GroovyPlugin());
         mapPlugin.put(JobTypeEnums.MYSQL.getCode(), new MySQLPlugin());
+        mapPlugin.put(JobTypeEnums.DOWNLOAD.getCode(), new DownloadPlugin());
     }
 
     /**
