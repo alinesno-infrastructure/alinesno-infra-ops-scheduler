@@ -4,9 +4,9 @@ import com.alinesno.infra.ops.scheduler.AbstractExecutor;
 import com.alinesno.infra.ops.scheduler.dto.ExecutorScriptDto;
 import com.alinesno.infra.ops.scheduler.utils.AttributeUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import javax.sql.DataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +17,7 @@ import java.util.Map;
  */
 public class ClickhousePlugin extends AbstractExecutor {
 
+    private static final Logger log = LoggerFactory.getLogger(ClickhousePlugin.class);
 
     public void run(ExecutorScriptDto executorScriptDto, Map<String, Object> contextMap) {
 
