@@ -43,7 +43,7 @@ public class AlarmPlugin extends AbstractExecutor {
         String secret = (String) attrs.get(PROP_SECRET);
 
         String serverId = (String) attrs.get(PROP_SERVER_ID);
-        findHostKey(serverId , webhook, null , secret);
+//        findHostKey(serverId , webhook, null , secret);
 
         // 根据配置的通知渠道类型选择性发送通知
         if ("ding-talk".equals(type)) {
