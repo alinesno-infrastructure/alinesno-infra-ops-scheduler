@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
  * @author luoxiaodong
  * @version 1.0.0
  */
+@EnableInfraSsoApi
 @MapperScan("com.alinesno.infra.ops.scheduler.mapper")
 @SpringBootApplication
 public class OpsSchedulerApplication {
