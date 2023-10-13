@@ -2,10 +2,8 @@ package com.alinesno.infra.ops.scheduler.api.provider;
 
 import com.alinesno.infra.common.core.context.SpringContext;
 import com.alinesno.infra.common.facade.response.AjaxResult;
-import com.alinesno.infra.ops.scheduler.dto.ExecutorScriptDto;
 import com.alinesno.infra.ops.scheduler.dto.TaskInfoDto;
 import com.alinesno.infra.ops.scheduler.entity.JobEntity;
-import com.alinesno.infra.ops.scheduler.enums.JobTypeEnums;
 import com.alinesno.infra.ops.scheduler.service.IDistSchedulerService;
 import com.alinesno.infra.ops.scheduler.service.IExecutorScriptService;
 import com.google.gson.Gson;

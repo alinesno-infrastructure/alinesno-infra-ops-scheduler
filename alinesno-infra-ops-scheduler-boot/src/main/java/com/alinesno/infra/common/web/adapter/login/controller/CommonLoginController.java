@@ -1,8 +1,5 @@
 package com.alinesno.infra.common.web.adapter.login.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alinesno.infra.common.facade.response.AjaxResult;
 import com.alinesno.infra.common.web.adapter.dto.LoginBodyDto;
 import com.alinesno.infra.common.web.adapter.dto.menus.Menu;
@@ -11,7 +8,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 @RestController
 public class CommonLoginController {
@@ -141,15 +141,14 @@ public class CommonLoginController {
                         new Menu("User", "system/user/index", false,false,  "system/user/index", new Menu.Meta("任务实例", "user", false, null))
                 ));
 
-        Menu serviceMenu = new Menu("Log", "/log", false, "noRedirect", "Layout", true, new Menu.Meta("任务配置", "log", false, null),
+        Menu serviceMenu = new Menu("Task", "/task", false, "noRedirect", "Layout", true, new Menu.Meta("任务配置", "log", false, null),
                         List.of(
-                                new Menu("Operlog", "monitor/operlog/index", false,false, "monitor/operlog/index", new Menu.Meta("任务实例", "form", false, null)),
-                                new Menu("Logininfor", "monitor/logininfor/index", false,false, "monitor/logininfor/index", new Menu.Meta("应用管理", "logininfor", false, null))));
+                                new Menu("TaskInstance", "instance/index", false,false, "task/instance/index", new Menu.Meta("任务实例", "form", false, null)),
+                                new Menu("WorkflowTaskInstance", "workflowInstance/index", false,false, "task/workflowInstance/index", new Menu.Meta("流程实例", "logininfor", false, null))));
 
         Menu monitorMenu = new Menu("Monitor", "/monitor", false, "noRedirect", "Layout", true, new Menu.Meta("定时任务", "monitor", false, null),
                 List.of(
                         new Menu("Online", "monitor/online/index", false,false, "monitor/online/index", new Menu.Meta("机器管理", "online", false, null)),
-                        new Menu("Job", "monitor/job/index", false,false, "monitor/job/index", new Menu.Meta("机器管理", "job", false, null)),
                         new Menu("Server", "monitor/server/index", false,false, "monitor/server/index", new Menu.Meta("任务管理", "server", false, null)),
                         new Menu("Cache", "monitor/cache/index", false,false, "monitor/cache/index", new Menu.Meta("插件管理", "redis", false, null))
                 ));

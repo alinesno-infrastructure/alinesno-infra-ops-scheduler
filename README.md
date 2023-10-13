@@ -103,6 +103,7 @@ jdk17添加以下到vm
 
 ## 鸣谢
 
+- 前端的Dag参考[dolphinscheduler](https://github.com/apache/dolphinscheduler)，同时使用vue(js)+element-plus重写
 - 设计思路参考:[蓝鲸运维]()，[阿里自动任务]()
 - 这里自动化工具使用[ansible](https://github.com/ansible/ansible)框架
 - CMD处理部分使用[flow.ci](flow.ci)处理源码
