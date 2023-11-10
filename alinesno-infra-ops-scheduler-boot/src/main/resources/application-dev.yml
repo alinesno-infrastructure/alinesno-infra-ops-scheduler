@@ -19,6 +19,18 @@ spring:
     restart:
       enabled: true
 
+actable:
+  table:
+    auto: update
+  model:
+    pack: com.alinesno.infra.ops.scheduler.entity;
+  database:
+    type: mysql
+  index:
+    prefix: alinesno_ops_scheduler_idx_
+  unique:
+    prefix: alinesno_ops_scheduler_uni_
+
 alinesno:
   data:
     pipeline:
