@@ -35,7 +35,7 @@
 
 		<dependency>
 			<groupId>com.alinesno.infra.ops</groupId>
-			<artifactId>alinesno-infra-ops-scheduler-api</artifactId>
+			<artifactId>alinesno-infra-ops-scheduler-gateway</artifactId>
 			<version>${revision}</version>
 		</dependency>
 
