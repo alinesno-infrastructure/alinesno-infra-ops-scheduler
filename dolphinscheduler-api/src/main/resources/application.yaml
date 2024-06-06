@@ -1,0 +1,63 @@
+spring:
+  profiles:
+   include:
+    - mysql
+  jackson:
+    time-zone: GMT+8
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+      
+server:
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json,application/xml
+  jetty:
+    max-http-form-post-size: 5000000
+  port: 12345
+  servlet:
+    context-path: /dolphinscheduler/
+    session:
+      timeout: 7200
+
+# 去掉默认banner
+mybatis-plus:
+  global-config:
+    banner: false
+
+# 注册中心配置
+registry:
+  plugin-name: zookeeper
+  servers: 127.0.0.1:2181
+  namespace: dolphinscheduler
+  base-sleep-time-ms: 60
+  max-sleep-ms: 300
+  max-retries: 5
+  session-timeout-ms: 30000
+  connection-timeout-ms: 7500
+  block-until-cconnected-wwait: 600
+  digest:
+
+security:
+  authentication:
+    type: OAUTH2
+
+# sa-token配置
+sa-token:
+  token-name: satoken
+  host-path: http://alinesno-infra-base-identity-auth-application.beta.base.infra.linesno.com
+  sso:
+    auth-url: ${sa-token.host-path}/login
+    is-http: true
+    check-ticket-url: ${sa-token.host-path}/sso/checkTicket
+    slo-url: ${sa-token.host-path}/sso/signout
+    get-data-url: ${sa-token.host-path}/sso/getData
+  sign:
+    secret-key:
+
+logging:
+  config: classpath:logback-api.xml   
