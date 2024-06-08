@@ -204,10 +204,10 @@ jobs:
       - name: local remote scp
         uses: cross-the-world/scp-pipeline@master
         with:
-          host: ${{ secrets.SERVER_BETA_HOST_02 }}
-          port: ${{ secrets.SERVER_BETA_PORT_02 }}
-          user: ${{ secrets.SERVER_BETA_USER_02 }}
-          pass: ${{ secrets.SERVER_BETA_KEY_02 }}
+          host: ${{ secrets.SERVER_BATA_HOST_01 }}
+          port: ${{ secrets.SERVER_BATA_PORT_01 }}
+          user: ${{ secrets.SERVER_BATA_USER_01 }}
+          pass: ${{ secrets.SERVER_BATA_KEY_01 }}
           local: "./deploy/*"
           remote: /home/github-action/dolphinscheduler/
 
@@ -216,10 +216,10 @@ jobs:
         env:
           WELCOME: "ssh pipeline"
         with:
-          host: ${{ secrets.SERVER_BETA_HOST_02 }}
-          port: ${{ secrets.SERVER_BETA_PORT_02 }}
-          user: ${{ secrets.SERVER_BETA_USER_02 }}
-          pass: ${{ secrets.SERVER_BETA_KEY_02 }}
+          host: ${{ secrets.SERVER_BATA_HOST_01 }}
+          port: ${{ secrets.SERVER_BATA_PORT_01 }}
+          user: ${{ secrets.SERVER_BATA_USER_01 }}
+          pass: ${{ secrets.SERVER_BATA_KEY_01 }}
           connect_timeout: 30s
           script: |
             export PROJECT_MASTER_NAME=${{ env.PROJECT_MASTER_NAME }}
