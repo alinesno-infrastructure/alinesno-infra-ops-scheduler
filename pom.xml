@@ -119,26 +119,26 @@
 	
 	<modules>
 		<!-- 通知服务包 -->	
-		<module>dolphinscheduler-alert</module>
+		<module>ops-scheduler-alert</module>
 		
-		<module>dolphinscheduler-spi</module>
-		<module>dolphinscheduler-registry-api</module>
-		<module>dolphinscheduler-task-api</module>
-		<module>dolphinscheduler-server</module>
-		<module>dolphinscheduler-common</module>
+		<module>ops-scheduler-spi</module>
+		<module>ops-scheduler-registry-api</module>
+		<module>ops-scheduler-task-api</module>
+		<module>ops-scheduler-server</module>
+		<module>ops-scheduler-common</module>
 		
 		<!-- 网关服务包 -->
-		<module>dolphinscheduler-api</module>
+		<module>ops-scheduler-api</module>
 		
-		<module>dolphinscheduler-dao</module>
-		<module>dolphinscheduler-remote</module>
-		<module>dolphinscheduler-service</module>
-		<module>dolphinscheduler-datasource-all</module>
-		<module>dolphinscheduler-python</module>
+		<module>ops-scheduler-dao</module>
+		<module>ops-scheduler-remote</module>
+		<module>ops-scheduler-service</module>
+		<module>ops-scheduler-datasource-all</module>
+		<module>ops-scheduler-python</module>
 		
 		<!-- 单独服务包 -->
-		<module>dolphinscheduler-server-master</module>
-		<module>dolphinscheduler-server-worker</module>
+		<module>ops-scheduler-server-master</module>
+		<module>ops-scheduler-server-worker</module>
 		
 	</modules>
 
@@ -236,90 +236,90 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-server</artifactId>
+				<artifactId>ops-scheduler-server</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-standalone-server</artifactId>
+				<artifactId>ops-scheduler-standalone-server</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-common</artifactId>
+				<artifactId>ops-scheduler-common</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-alert-plugin</artifactId>
+				<artifactId>ops-scheduler-alert-plugin</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-registry-plugin</artifactId>
+				<artifactId>ops-scheduler-registry-plugin</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-dao</artifactId>
+				<artifactId>ops-scheduler-dao</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-api</artifactId>
+				<artifactId>ops-scheduler-api</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-remote</artifactId>
+				<artifactId>ops-scheduler-remote</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-service</artifactId>
+				<artifactId>ops-scheduler-service</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-spi</artifactId>
+				<artifactId>ops-scheduler-spi</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-python</artifactId>
+				<artifactId>ops-scheduler-python</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-alert-api</artifactId>
+				<artifactId>ops-scheduler-alert-api</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-alert-server</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			
-			<dependency>
-				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-registry-api</artifactId>
+				<artifactId>ops-scheduler-alert-server</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			
 			<dependency>
 				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-datasource-plugin</artifactId>
+				<artifactId>ops-scheduler-registry-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.apache.dolphinscheduler</groupId>
+				<artifactId>ops-scheduler-datasource-plugin</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-datasource-all</artifactId>
+				<artifactId>ops-scheduler-datasource-all</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.apache.dolphinscheduler</groupId>
-				<artifactId>dolphinscheduler-task-api</artifactId>
+				<artifactId>ops-scheduler-task-api</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			

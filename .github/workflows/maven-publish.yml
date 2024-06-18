@@ -16,9 +16,9 @@ jobs:
 
     env:
       # 项目管理
-      PROJECT_MASTER_NAME: 'dolphinscheduler-server-master'
-      PROJECT_API_NAME: 'dolphinscheduler-api'
-      PROJECT_WORKER_NAME: 'dolphinscheduler-server-worker'
+      PROJECT_MASTER_NAME: 'ops-scheduler-server-master'
+      PROJECT_API_NAME: 'ops-scheduler-api'
+      PROJECT_WORKER_NAME: 'ops-scheduler-server-worker'
 
       # 版本管理
       PRO_VERSION: '1.0.0-M2-SNAPSHOT'
