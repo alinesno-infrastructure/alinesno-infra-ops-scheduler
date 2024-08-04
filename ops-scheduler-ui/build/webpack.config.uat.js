@@ -18,7 +18,8 @@ const merge = require('webpack-merge')
 const prodConfig = require('./webpack.config.prod')
 // const productPath = process.env.CDN_PATH|| '/dolphinscheduler/ui/'
 
-const productPath = '/'
+const productPath = '/ops-scheduler/'
+
 const config = merge.smart(prodConfig, {
   output: {
     publicPath: productPath
