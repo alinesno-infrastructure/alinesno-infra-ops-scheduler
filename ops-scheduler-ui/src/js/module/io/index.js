@@ -18,7 +18,7 @@
 import io from '@/module/axios/index'
 import cookies from 'js-cookie'
 
-const apiPrefix = '/dolphinscheduler'
+const apiPrefix = '/ops-scheduler'
 const reSlashPrefix = /^\/+/
 
 const resolveURL = (url) => {
