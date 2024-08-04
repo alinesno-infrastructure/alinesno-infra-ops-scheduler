@@ -45,6 +45,7 @@
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
+    "@babel/plugin-transform-private-methods": "^7.24.7",
     "acorn": "^7.4.1",
     "autoprefixer": "^9.1.0",
     "babel-core": "^6.25.0",
@@ -95,6 +96,9 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
     "webpack-merge": "^4.2.2"
+  },
+  "resolutions": {
+    "ml-matrix": "6.10.8"
   },
   "eslintConfig": {
     "rules": {
