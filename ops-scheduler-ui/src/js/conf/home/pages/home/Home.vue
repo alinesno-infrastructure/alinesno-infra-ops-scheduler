@@ -50,9 +50,9 @@ export default {
   data() {
     return {
       currentEnvClusterObj: {
-        appName: '数据编排计算服务',
-        clusterName: '针对于离线计算的数据治理能力',
-        desc: '基于DolphinScheduler二次开发的数据集成服务能力，用于数据治理的工作流程编排能力。'
+        appName: '运维自动化编排服务',
+        clusterName: '针对于运维自动化的构建服务能力',
+        desc: '基于DolphinScheduler二次开发的数据集成服务能力，用于运维自动化工作流程编排能力。'
       }
     };
   }
